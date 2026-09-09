@@ -4,315 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Monika Anandan — Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-  :root{
-    --bg:#FAF9F6;
-    --bg-alt:#F1EEE7;
-    --ink:#1B1F1D;
-    --ink-soft:#4B534E;
-    --line:#DEDACE;
-    --teal:#2B5F52;
-    --teal-deep:#1D423A;
-    --amber:#C77D3F;
-    --cream-card:#FFFFFF;
-    --whatsapp:#25D366;
-    --radius-sm:6px;
-    --radius-md:10px;
-    --maxw:1180px;
-  }
-
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    font-family:'Inter',sans-serif;
-    color:var(--ink);
-    background:var(--bg);
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3,.brand{font-family:'Fraunces',serif;}
-  a{color:inherit;text-decoration:none;}
-  img{max-width:100%;display:block;}
-  ul{list-style:none;margin:0;padding:0;}
-  section{scroll-margin-top:84px;}
-  :focus-visible{outline:2px solid var(--teal);outline-offset:3px;}
-
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
-
-  /* ============ NAV ============ */
-  .nav{
-    position:sticky;top:0;z-index:40;
-    background:rgba(250,249,246,0.92);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav-inner{
-    max-width:var(--maxw);margin:0 auto;padding:0 32px;
-    height:76px;
-    display:flex;align-items:center;justify-content:space-between;
-    gap:24px;
-  }
-  .brand{
-    font-size:1.5rem;
-    font-weight:600;
-    letter-spacing:0.01em;
-    color:var(--ink);
-    white-space:nowrap;
-    line-height:1;
-    flex:0 0 auto;
-  }
-  .nav-links{display:flex;align-items:center;gap:28px;flex-wrap:nowrap;}
-  .nav-links a{font-size:0.94rem;font-weight:500;color:var(--ink-soft);white-space:nowrap;transition:color .15s ease;}
-  .nav-links a:hover{color:var(--teal);}
-  .nav-cta{
-    background:var(--teal);color:#fff !important;
-    padding:9px 18px;border-radius:999px;
-    font-weight:600;
-  }
-  .nav-cta:hover{background:var(--teal-deep);}
-  .nav-toggle{display:none;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--ink);}
-
-  @media (max-width:920px){
-    .nav-links{
-      position:absolute;top:76px;left:0;right:0;
-      background:var(--bg);border-bottom:1px solid var(--line);
-      flex-direction:column;align-items:flex-start;gap:0;
-      padding:8px 32px 20px;
-      display:none;
-    }
-    .nav-links.open{display:flex;}
-    .nav-links a{padding:12px 0;width:100%;border-bottom:1px solid var(--line);}
-    .nav-toggle{display:block;}
-  }
-
-  /* ============ HERO ============ */
-  .hero{padding:76px 0 64px;}
-  .hero-inner{
-    max-width:var(--maxw);margin:0 auto;padding:0 32px;
-    display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;
-  }
-  .eyebrow{
-    font-size:0.86rem;font-weight:600;color:var(--teal);
-    margin:0 0 14px;
-  }
-  .hero-text h1{
-    font-size:clamp(2.1rem,3.6vw,3.1rem);
-    font-weight:600;line-height:1.12;margin:0 0 20px;letter-spacing:-0.01em;
-  }
-  .hero-sub{font-size:1.06rem;color:var(--ink-soft);max-width:56ch;margin:0 0 30px;}
-  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:13px 26px;border-radius:8px;
-    font-weight:600;font-size:0.95rem;cursor:pointer;border:1px solid transparent;
-    transition:transform .15s ease, background .15s ease, border-color .15s ease;
-  }
-  .btn-primary{background:var(--teal);color:#fff;}
-  .btn-primary:hover{background:var(--teal-deep);}
-  .btn-ghost{border-color:var(--ink);color:var(--ink);}
-  .btn-ghost:hover{background:var(--ink);color:#fff;}
-  .btn-amber{background:var(--amber);color:#fff;}
-  .btn-amber:hover{background:#a8642c;}
-
-  .hero-stats{
-    display:grid;grid-template-columns:repeat(4,1fr);
-    gap:20px;padding-top:32px;border-top:1px solid var(--line);
-  }
-  .hero-stats div strong{display:block;font-family:'Fraunces',serif;font-size:1.9rem;font-weight:600;color:var(--teal-deep);}
-  .hero-stats div span{font-size:0.82rem;color:var(--ink-soft);}
-
-  .hero-photo{display:flex;justify-content:center;}
-  .photo-frame{
-    width:100%;max-width:340px;aspect-ratio:4/5;
-    border-radius:14px;background:var(--bg-alt);
-    border:1px solid var(--line);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
-    color:var(--ink-soft);text-align:center;padding:20px;
-    overflow:hidden;
-  }
-  .photo-frame img{width:100%;height:100%;object-fit:cover;}
-  .placeholder-icon{font-size:2.2rem;}
-  .placeholder-text{font-size:0.85rem;}
-
-  @media (max-width:860px){
-    .hero-inner{grid-template-columns:1fr;}
-    .hero-photo{order:-1;max-width:220px;margin:0 auto;}
-    .hero-stats{grid-template-columns:repeat(2,1fr);}
-  }
-
-  /* ============ SECTION SHELL ============ */
-  .section{padding:76px 0;}
-  .section.alt{background:var(--bg-alt);}
-  .section-head{max-width:640px;margin:0 auto 44px;text-align:left;padding:0 32px;}
-  .section-head h2{font-size:clamp(1.6rem,2.6vw,2.1rem);font-weight:600;margin:0 0 12px;letter-spacing:-0.01em;}
-  .section-sub{color:var(--ink-soft);margin:0;font-size:1rem;}
-
-  .grid{max-width:var(--maxw);margin:0 auto;padding:0 32px;display:grid;gap:22px;}
-  .grid-services{grid-template-columns:repeat(3,1fr);}
-  .grid-articles{grid-template-columns:repeat(3,1fr);}
-  .grid-open{grid-template-columns:repeat(3,1fr);}
-  .grid-gallery{grid-template-columns:repeat(4,1fr);}
-  @media (max-width:920px){
-    .grid-services,.grid-articles,.grid-open{grid-template-columns:repeat(2,1fr);}
-    .grid-gallery{grid-template-columns:repeat(2,1fr);}
-  }
-  @media (max-width:600px){
-    .grid-services,.grid-articles,.grid-open,.grid-gallery{grid-template-columns:1fr;}
-  }
-
-  .card{
-    background:var(--cream-card);border:1px solid var(--line);border-radius:var(--radius-md);
-    padding:26px;display:flex;flex-direction:column;gap:10px;
-  }
-  .card .tag{font-size:0.78rem;font-weight:600;color:var(--teal);}
-  .card h3{margin:0;font-size:1.15rem;font-weight:600;}
-  .card p{margin:0;color:var(--ink-soft);font-size:0.94rem;}
-  .card .more{margin-top:auto;font-size:0.86rem;font-weight:600;color:var(--teal-deep);}
-
-  .gallery-tile{
-    aspect-ratio:1/1;border-radius:var(--radius-md);
-    background:var(--bg-alt);border:1px solid var(--line);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--ink-soft);font-size:0.82rem;text-align:center;padding:14px;
-  }
-  .section.alt .gallery-tile{background:#fff;}
-
-  /* ============ COMMUNITY ============ */
-  .community-inner{
-    max-width:var(--maxw);margin:0 auto;padding:0 32px;
-    display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:start;
-  }
-  .community-inner h2{font-size:clamp(1.6rem,2.6vw,2.1rem);font-weight:600;margin:0 0 16px;}
-  .community-inner p{color:var(--ink-soft);margin:0 0 18px;}
-  .community-points{display:flex;flex-direction:column;gap:20px;}
-  .point{background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:22px;}
-  .point h3{margin:0 0 6px;font-size:1.02rem;font-weight:600;}
-  .point p{margin:0;font-size:0.9rem;color:var(--ink-soft);}
-  @media (max-width:860px){.community-inner{grid-template-columns:1fr;}}
-
-  /* ============ EXPERIENCE TIMELINE ============ */
-  .timeline{
-    max-width:800px;margin:0 auto;padding:0 32px;
-    position:relative;
-  }
-  .timeline::before{
-    content:"";position:absolute;left:52px;top:6px;bottom:6px;width:2px;background:var(--line);
-  }
-  @media (max-width:600px){.timeline::before{left:20px;}}
-  .t-item{position:relative;padding-left:96px;padding-bottom:40px;}
-  .t-item:last-child{padding-bottom:0;}
-  @media (max-width:600px){.t-item{padding-left:52px;}}
-  .t-dot{
-    position:absolute;left:44px;top:4px;width:16px;height:16px;border-radius:50%;
-    background:var(--teal);border:3px solid var(--bg);box-shadow:0 0 0 2px var(--teal);
-  }
-  @media (max-width:600px){.t-dot{left:12px;}}
-  .t-item.edu .t-dot{background:var(--amber);box-shadow:0 0 0 2px var(--amber);}
-  .t-period{font-size:0.82rem;font-weight:600;color:var(--teal-deep);margin-bottom:4px;}
-  .t-item.edu .t-period{color:var(--amber);}
-  .t-role{font-size:1.1rem;font-weight:600;margin:0 0 4px;}
-  .t-org{font-size:0.94rem;color:var(--ink-soft);margin:0 0 8px;}
-  .t-desc{font-size:0.9rem;color:var(--ink-soft);margin:0;max-width:56ch;}
-
-  /* ============ CONNECT ============ */
-  .connect-section{padding-bottom:64px;}
-  .contact-panel{
-    max-width:var(--maxw);margin:0 auto 48px;padding:0 32px;
-    display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
-  }
-  @media (max-width:920px){.contact-panel{grid-template-columns:repeat(2,1fr);}}
-  @media (max-width:560px){.contact-panel{grid-template-columns:1fr;}}
-  .contact-card{
-    background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);
-    padding:22px;display:flex;flex-direction:column;gap:6px;
-  }
-  .contact-card i{font-size:1.3rem;color:var(--teal);margin-bottom:6px;}
-  .contact-card .label{font-size:0.78rem;font-weight:600;color:var(--ink-soft);text-transform:none;}
-  .contact-card a, .contact-card .val{font-size:0.98rem;font-weight:600;color:var(--ink);word-break:break-word;}
-  .contact-card a:hover{color:var(--teal);}
-
-  .resume-row{max-width:var(--maxw);margin:0 auto 56px;padding:0 32px;}
-
-  .grid-connect{grid-template-columns:repeat(4,1fr);}
-  .social-group{
-    background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);
-    padding:22px;display:flex;flex-direction:column;gap:14px;
-  }
-  .social-group h3{margin:0;font-size:0.98rem;font-weight:600;display:flex;align-items:center;gap:8px;}
-  .social-group h3 i{color:var(--teal);font-size:1.05rem;}
-  .social-links{display:flex;flex-direction:column;gap:10px;}
-  .social-links a{
-    font-size:0.9rem;font-weight:500;color:var(--ink-soft);
-    display:flex;align-items:center;gap:8px;
-    transition:color .15s ease;
-  }
-  .social-links a:hover{color:var(--teal-deep);}
-  .social-links a i{width:18px;text-align:center;color:var(--teal);}
-  @media (max-width:920px){.grid-connect{grid-template-columns:repeat(2,1fr);}}
-  @media (max-width:600px){.grid-connect{grid-template-columns:1fr;}}
-
-  /* ============ FOOTER ============ */
-  .footer{
-    border-top:1px solid var(--line);padding:28px 32px;
-    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
-    font-size:0.86rem;color:var(--ink-soft);
-    max-width:var(--maxw);margin:0 auto;
-  }
-  .back-top{font-weight:600;color:var(--teal-deep);}
-
-  /* ============ MODAL ============ */
-  .modal-overlay{
-    position:fixed;inset:0;background:rgba(20,22,20,0.55);
-    display:none;align-items:center;justify-content:center;z-index:80;padding:24px;
-  }
-  .modal-overlay.open{display:flex;}
-  .modal{
-    background:#fff;border-radius:var(--radius-md);max-width:560px;width:100%;
-    max-height:82vh;overflow-y:auto;padding:36px;position:relative;
-  }
-  .modal-close{
-    position:absolute;top:16px;right:16px;background:var(--bg-alt);border:none;
-    width:32px;height:32px;border-radius:50%;font-size:1.1rem;cursor:pointer;color:var(--ink);
-  }
-
-  /* ============ WHATSAPP FLOATING CHAT BUTTON ============ */
-  .wa-float{
-    position:fixed;right:24px;bottom:24px;z-index:60;
-    display:flex;align-items:flex-end;gap:0;
-  }
-  .wa-bubble{
-    display:none;
-    background:#fff;border-radius:14px;padding:14px 16px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.14);
-    max-width:230px;margin-right:12px;margin-bottom:6px;
-    font-size:0.86rem;color:var(--ink);
-    border:1px solid var(--line);
-    position:relative;
-  }
-  .wa-bubble strong{display:block;font-size:0.88rem;margin-bottom:3px;}
-  .wa-float.show-bubble .wa-bubble{display:block;}
-  .wa-btn{
-    width:60px;height:60px;border-radius:50%;
-    background:var(--whatsapp);color:#fff;
-    display:flex;align-items:center;justify-content:center;
-    font-size:1.7rem;box-shadow:0 8px 22px rgba(37,211,102,0.45);
-    border:none;cursor:pointer;
-    animation:wa-pulse 2.4s ease-in-out infinite;
-  }
-  @keyframes wa-pulse{
-    0%,100%{box-shadow:0 8px 22px rgba(37,211,102,0.45);}
-    50%{box-shadow:0 8px 26px rgba(37,211,102,0.7);}
-  }
-  @media (prefers-reduced-motion: reduce){
-    .wa-btn{animation:none;}
-    html{scroll-behavior:auto;}
-  }
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -320,7 +12,7 @@
 <header class="nav" id="top">
   <div class="nav-inner">
     <a class="brand" href="#top">Monika Anandan</a>
-    <nav class="nav-links" id="navLinks">
+    <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#ideas">Ideas &amp; Articles</a>
@@ -351,9 +43,9 @@
       </div>
       <div class="hero-stats">
         <div><strong>6+</strong><span>Years in Tech &amp; Business</span></div>
-        <div><strong>70+</strong><span>Engineers Led</span></div>
-        <div><strong>400+</strong><span>Students Trained (EdTech)</span></div>
-        <div><strong>70+</strong><span>Sector Partnerships</span></div>
+        <div><strong>16</strong><span>Engineers Led at Once</span></div>
+        <div><strong>30</strong><span>Students at AvenMinds</span></div>
+        <div><strong>4</strong><span>Sector Partnerships</span></div>
       </div>
     </div>
     <div class="hero-photo">
@@ -372,44 +64,8 @@
     <h2>Services across every sector I work in</h2>
     <p class="section-sub">Tap any sector to see the complete details of what I offer, how I work, and who I partner with there.</p>
   </div>
-  <div class="grid grid-services" id="servicesGrid">
-    <div class="card" data-modal-title="IT &amp; Software" data-modal-body="Full-stack product builds, engineering team leadership, code audits and technical strategy for startups and enterprise clients.">
-      <span class="tag">IT / Software</span>
-      <h3>Product &amp; Engineering</h3>
-      <p>Full-stack builds, technical leadership and delivery for startups and enterprise teams.</p>
-      <span class="more">View details →</span>
-    </div>
-    <div class="card" data-modal-title="Marketing" data-modal-body="Go-to-market planning, brand positioning and content systems for founders who need marketing that actually converts.">
-      <span class="tag">Marketing</span>
-      <h3>Growth &amp; Positioning</h3>
-      <p>Go-to-market strategy, brand positioning and content systems built for conversion.</p>
-      <span class="more">View details →</span>
-    </div>
-    <div class="card" data-modal-title="Finance" data-modal-body="Financial planning, budgeting frameworks and investor-ready reporting for early-stage and growing businesses.">
-      <span class="tag">Finance</span>
-      <h3>Planning &amp; Reporting</h3>
-      <p>Budgeting frameworks and investor-ready reporting for early-stage teams.</p>
-      <span class="more">View details →</span>
-    </div>
-    <div class="card" data-modal-title="Media Production" data-modal-body="End-to-end media production support — planning, production coordination and distribution for brand and business content.">
-      <span class="tag">Media</span>
-      <h3>Content &amp; Production</h3>
-      <p>Planning, production coordination and distribution for brand content.</p>
-      <span class="more">View details →</span>
-    </div>
-    <div class="card" data-modal-title="EdTech" data-modal-body="Curriculum design, mentorship programs and platform-building support for education-focused ventures, including AvenMinds.">
-      <span class="tag">EdTech</span>
-      <h3>Learning Programs</h3>
-      <p>Curriculum design and mentorship built from running AvenMinds.</p>
-      <span class="more">View details →</span>
-    </div>
-    <div class="card" data-modal-title="Staffing &amp; Consulting" data-modal-body="Team augmentation, hiring support and hands-on advisory for founders building out their first or next team.">
-      <span class="tag">Consulting</span>
-      <h3>Staffing &amp; Advisory</h3>
-      <p>Team augmentation and hands-on advisory for founders building their next team.</p>
-      <span class="more">View details →</span>
-    </div>
-  </div>
+
+  <div class="grid grid-services" id="servicesGrid"></div>
 </section>
 
 <!-- ============ IDEAS & ARTICLES ============ -->
@@ -419,11 +75,97 @@
     <h2>Business ideas, strategies &amp; things I've learned</h2>
     <p class="section-sub">A running shelf of write-ups from my work across tech, business and education. Click any card to read the full piece.</p>
   </div>
-  <div class="grid grid-articles" id="articlesGrid">
-    <div class="card" data-modal-title="Why cross-sector consultants scale differently" data-modal-body="Notes on building one practice that serves IT, marketing, finance, media and EdTech clients at once, without diluting the work.">
-      <span class="tag">Strategy</span>
-      <h3>Why cross-sector consultants scale differently</h3>
-      <p>Notes on building one practice that serves five industries without diluting the work.</p>
-      <span class="more">Read more →</span>
+
+  <div class="grid grid-articles" id="articlesGrid"></div>
+</section>
+
+<!-- ============ OPEN FOR ============ -->
+<section class="section" id="open-for">
+  <div class="section-head">
+    <p class="eyebrow">Open For</p>
+    <h2>What I'm currently open to</h2>
+    <p class="section-sub">If any of this fits what you're building, that's exactly the conversation I want to have.</p>
+  </div>
+
+  <div class="grid grid-open" id="openGrid"></div>
+</section>
+
+<!-- ============ TEAM & COMMUNITY ============ -->
+<section class="section alt community-section" id="community">
+  <div class="community-inner">
+    <div>
+      <p class="eyebrow">Growing, On Purpose</p>
+      <h2>I'm building a team — and a community</h2>
+      <p>
+        What started as one person supporting a handful of clients has grown into a genuine cross-sector
+        practice. I'm now actively expanding my own team so I can support everyone from first-time founders
+        to well-established, growing companies — properly and at scale, not just as a solo freelancer.
+      </p>
+      <p>
+        Alongside that, I run my own <strong>business community</strong> — a space where founders, freelancers,
+        job-seekers and business owners across IT, Marketing, Finance, Media and EdTech can connect, collaborate,
+        find opportunities and support each other. If you want in, it's one tap away.
+      </p>
+      <div class="hero-actions">
+        <a href="https://chat.whatsapp.com/FU5ylkWWKRCKItfUYJdMzy?s=cl&p=a&ilr=1" target="_blank" rel="noopener" class="btn btn-primary">Join the Business Community</a>
+        <a href="#connect" class="btn btn-ghost">See All My Channels</a>
+      </div>
     </div>
-    <div class="card" data-modal-title="Building AvenMinds" data-modal-body="What it actually takes to grow an EdTech program from a handful of students to a real
+    <div class="community-points">
+      <div class="point"><h3>Team Expansion</h3><p>Actively onboarding collaborators and specialists across every sector I serve, so support scales beyond one person.</p></div>
+      <div class="point"><h3>Business Community</h3><p>A cross-industry network for collaboration, hiring, freelance work and business growth — not just networking for its own sake.</p></div>
+      <div class="point"><h3>From Startup to Scale-Up</h3><p>Structured to support very early founders and established, growing businesses with the same seriousness.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section class="section" id="experience">
+  <div class="section-head">
+    <p class="eyebrow">Background</p>
+    <h2>Experience &amp; Journey</h2>
+    <p class="section-sub">From intern to technical lead to independent multi-sector consultant and founder.</p>
+  </div>
+
+  <div class="timeline" id="timeline"></div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="section alt" id="gallery">
+  <div class="section-head">
+    <p class="eyebrow">Gallery</p>
+    <h2>Work, moments &amp; behind the scenes</h2>
+    <p class="section-sub">Drop your images into the <code>/images</code> folders (see the README inside the zip) — they'll appear here automatically using these exact file names.</p>
+  </div>
+
+  <div class="grid grid-gallery" id="galleryGrid"></div>
+</section>
+
+<!-- ============ CONNECT ============ -->
+<section class="section connect-section" id="connect">
+  <div class="section-head">
+    <p class="eyebrow">Let's Connect</p>
+    <h2>Follow along or reach out directly</h2>
+    <p class="section-sub">Daily content, business updates and behind-the-scenes across every platform below — pick whichever fits how you want to connect.</p>
+  </div>
+
+  <div class="grid grid-connect" id="connectGrid"></div>
+</section>
+
+<footer class="footer">
+  <p>© <span id="year"></span> Monika Anandan. Built with intent, one sector at a time.</p>
+  <a href="#top" class="back-top">Back to top ↑</a>
+</footer>
+
+<!-- ============ MODAL ============ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" role="dialog" aria-modal="true">
+    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
