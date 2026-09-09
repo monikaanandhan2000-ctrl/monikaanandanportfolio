@@ -1,45 +1,47 @@
-# Monika Anandan — Portfolio
+# Adding your images
 
-A single-page portfolio site covering IT & Technology, Digital Marketing,
-Finance & Business Development, Media Production, EdTech, HR & Staffing
-and Supply Chain — with clickable sector cards, business articles, an
-experience timeline, a gallery, and every one of your social links.
+The portfolio is already wired up to display your images automatically —
+you just need to drop files into the right folders using the **exact file
+names** below. Nothing else needs to change.
 
-## How to view it
-Just open `index.html` in any web browser (double-click it, or right-click →
-Open with → your browser). No installation, server, or build step needed.
+## 1. Profile photo
+Folder: `images/profile/`
+File name: `profile.jpg`
 
-## How to publish it online (optional)
-Any static hosting works since this is plain HTML/CSS/JS:
-- **Netlify / Vercel:** drag-and-drop this whole folder into their dashboard.
-- **GitHub Pages:** push this folder to a GitHub repo and enable Pages.
+This is the large photo in the hero section at the top of the page.
 
-## How to edit the content
-Almost everything you'll want to change lives in **`js/data.js`** — services,
-articles, "open for" cards, experience timeline, gallery file list, and all
-social links. Open it in any text editor; each section is clearly labeled.
+## 2. Gallery images
+Folder: `images/gallery/`
+File names (add any or all of these):
+- `work-1.jpg`
+- `work-2.jpg`
+- `team-1.jpg`
+- `edtech-1.jpg`
+- `media-1.jpg`
+- `event-1.jpg`
 
-- To edit colors, fonts or spacing → `css/style.css`
-- To change the page structure/sections → `index.html`
-- To add your own photos → see `images/README.md`
+Until an image is added, that tile shows a soft placeholder telling you
+exactly which file to add — so you always know what's missing.
 
-## Folder structure
-```
-portfolio/
-├── index.html          → the page itself
-├── css/style.css        → all styling
-├── js/data.js            → all editable content (services, articles, links…)
-├── js/script.js         → renders the content + powers the popups
-├── images/
-│   ├── profile/          → your hero photo goes here (profile.jpg)
-│   ├── gallery/          → gallery photos go here
-│   ├── logos/             → reserved for partner/platform logos
-│   └── README.md         → exact file names to use
-└── README.md              → this file
+## 3. Want more gallery tiles, or different file names?
+Open `js/data.js` and find the `GALLERY` list near the bottom. Add a new
+line like this:
+
+```js
+{ file: "images/gallery/your-file-name.jpg", label: "Whatever you like" },
 ```
 
-## Notes
-- All social links are wired in exactly as provided and open in a new tab.
-- Every sector card and article card opens a popup with full details —
-  edit or add to these anytime in `js/data.js`.
-- The site is fully responsive (desktop, tablet, mobile).
+Then drop a matching image into `images/gallery/` with that same file name.
+
+## 4. Logos folder
+Folder: `images/logos/` is reserved if you'd like to add partner or
+platform logos later (e.g. Razegreen Technologies, NVteck Technologies,
+Ascendx Staffing Solutions, Rudrastic Innovations, AvenMinds). Not wired
+into the page by default — ask to have a "Partners" strip added if you'd
+like these displayed.
+
+## Tips
+- `.jpg`, `.jpeg`, `.png` and `.webp` all work — just make sure the file
+  extension in `data.js` / this list matches the file you add.
+- Square or portrait images work best for the gallery tiles (4:3 crop).
+- The profile photo works best as a portrait image (4:5 crop).
