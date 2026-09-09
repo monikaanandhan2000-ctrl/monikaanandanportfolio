@@ -5,6 +5,178 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Monika Anandan — Portfolio</title>
 <link rel="stylesheet" href="css/style.css">
+
+<!-- ============ SUPPLEMENTARY STYLES ============
+     Added directly here because style.css wasn't provided to me.
+     These only target new elements/classes below, or lightly
+     enhance existing selectors, so they won't fight your original
+     stylesheet. Move any of this into css/style.css any time. -->
+<style>
+  /* ---- Nav brand: clean single-line heading look ---- */
+  .nav-inner { display: flex; align-items: center; }
+  .nav .brand,
+  .nav-inner .brand {
+    font-size: 1.65rem;
+    font-weight: 800;
+    line-height: 1;
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* ---- Subtle themed backgrounds for depth ---- */
+  .hero {
+    background: linear-gradient(160deg, #f4f7ff 0%, #ffffff 55%, #f6f2ff 100%);
+  }
+  section.section.alt {
+    background: linear-gradient(180deg, #fafafe 0%, #f3f4fb 100%);
+  }
+  .community-section {
+    background: linear-gradient(135deg, #eef2ff 0%, #f7f9ff 100%);
+  }
+
+  /* ---- Contact card (Connect section) ---- */
+  .contact-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    background: #ffffff;
+    border: 1px solid #ececf5;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin: 0 0 2rem;
+    box-shadow: 0 6px 24px rgba(20, 20, 50, 0.06);
+  }
+  .contact-card .contact-item h4 {
+    margin: 0 0 0.35rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #8b8ba7;
+  }
+  .contact-card .contact-item a,
+  .contact-card .contact-item p {
+    margin: 0;
+    font-weight: 600;
+    color: #1c1c2e;
+    text-decoration: none;
+    word-break: break-word;
+  }
+  .contact-card .contact-item a:hover { text-decoration: underline; }
+  .resume-cta { margin-top: 0.5rem; }
+
+  /* ---- All My Profiles section ---- */
+  .grid-profiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .profile-link {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    background: #fff;
+    border: 1px solid #ececf5;
+    border-radius: 12px;
+    padding: 0.9rem 1.1rem;
+    text-decoration: none;
+    color: #1c1c2e;
+    font-weight: 600;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .profile-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(20, 20, 50, 0.08);
+  }
+  .profile-link .platform-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #8b8ba7;
+    display: block;
+  }
+
+  /* ---- Partners section ---- */
+  .grid-partners {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.25rem;
+  }
+  .partner-card {
+    background: #fff;
+    border: 1px dashed #d6d6ea;
+    border-radius: 14px;
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .partner-card .placeholder-frame {
+    height: 90px;
+    border-radius: 10px;
+    background: #f6f6fb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #9a9ab8;
+    font-size: 0.75rem;
+    margin-bottom: 0.6rem;
+  }
+  .partner-card h4 { margin: 0.2rem 0 0.15rem; font-size: 0.95rem; }
+  .partner-card p { margin: 0; font-size: 0.8rem; color: #7a7a94; }
+
+  /* ---- Experience & Education detail block ---- */
+  .experience-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ececf5;
+  }
+  .experience-details h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #8b8ba7;
+    margin-bottom: 1rem;
+  }
+  .experience-details ul { list-style: none; margin: 0; padding: 0; }
+  .experience-details li {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid #f1f1f7;
+  }
+  .experience-details li:last-child { border-bottom: none; }
+  .experience-details .role { font-weight: 700; color: #1c1c2e; }
+  .experience-details .org { color: #4d4d66; }
+  .experience-details .period {
+    display: block;
+    font-size: 0.8rem;
+    color: #9a9ab8;
+    margin-top: 0.15rem;
+  }
+
+  /* ---- WhatsApp floating chat button ---- */
+  .whatsapp-float {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.45);
+    z-index: 999;
+    text-decoration: none;
+    transition: transform 0.15s ease;
+  }
+  .whatsapp-float:hover { transform: scale(1.08); }
+  .whatsapp-float svg { width: 30px; height: 30px; display: block; }
+</style>
 </head>
 <body>
 
@@ -20,6 +192,8 @@
       <a href="#community">Community</a>
       <a href="#experience">Experience</a>
       <a href="#gallery">Gallery</a>
+      <a href="#profiles">Profiles</a>
+      <a href="#partners">Partners</a>
       <a href="#connect" class="nav-cta">Connect</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
@@ -43,9 +217,9 @@
       </div>
       <div class="hero-stats">
         <div><strong>6+</strong><span>Years in Tech &amp; Business</span></div>
-        <div><strong>16</strong><span>Engineers Led at Once</span></div>
-        <div><strong>30</strong><span>Students at AvenMinds</span></div>
-        <div><strong>4</strong><span>Sector Partnerships</span></div>
+        <div><strong>70+</strong><span>Engineers Led</span></div>
+        <div><strong>400+</strong><span>Students Trained on EdTech</span></div>
+        <div><strong>70+</strong><span>Sector Partnerships</span></div>
       </div>
     </div>
     <div class="hero-photo">
@@ -128,6 +302,51 @@
   </div>
 
   <div class="timeline" id="timeline"></div>
+
+  <!-- Static supplementary detail (kept alongside the dynamic timeline above,
+       since the timeline's data source (js/data.js) wasn't provided to me) -->
+  <div class="experience-details">
+    <div>
+      <h3>Work Experience</h3>
+      <ul>
+        <li>
+          <span class="role">Freelance Multi-Sector Consultant</span>
+          <span class="org">Independent</span>
+          <span class="period">July 2026 – Present</span>
+        </li>
+        <li>
+          <span class="role">Senior Manager</span>
+          <span class="org">NVTeck</span>
+          <span class="period">January 2026 – June 2026</span>
+        </li>
+        <li>
+          <span class="role">Team Lead (progressed from SME → Senior Software Engineer → Team Lead)</span>
+          <span class="org">Accenture</span>
+          <span class="period">May 2022 – December 2025</span>
+        </li>
+        <li>
+          <span class="role">Junior Software Engineer</span>
+          <span class="org">HCL Technologies</span>
+          <span class="period">January 2020 – April 2022</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Education</h3>
+      <ul>
+        <li>
+          <span class="role">MBA (Distance Education)</span>
+          <span class="org">Pursued alongside HCL Technologies role</span>
+          <span class="period">2021 – 2022</span>
+        </li>
+        <li>
+          <span class="role">B.Tech, Information Technology</span>
+          <span class="org"></span>
+          <span class="period">April 2017 – March 2020</span>
+        </li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <!-- ============ GALLERY ============ -->
@@ -141,12 +360,97 @@
   <div class="grid grid-gallery" id="galleryGrid"></div>
 </section>
 
+<!-- ============ ALL MY PROFILES ============ -->
+<section class="section" id="profiles">
+  <div class="section-head">
+    <p class="eyebrow">Find Me Everywhere</p>
+    <h2>All My Profiles</h2>
+    <p class="section-sub">Every platform I'm active on — tap any to open it directly.</p>
+  </div>
+
+  <div class="grid-profiles">
+    <a class="profile-link" href="https://www.instagram.com/monikaanand_m.a?stkn=eTg4MDhsNWphYWV1" target="_blank" rel="noopener"><span><span class="platform-tag">Instagram · Official</span>@monikaanand_m.a</span></a>
+    <a class="profile-link" href="https://www.instagram.com/monicameeera?stkn=ZmtxMWQ3ZmFmdHEy" target="_blank" rel="noopener"><span><span class="platform-tag">Instagram · Personal</span>@monicameeera</span></a>
+    <a class="profile-link" href="https://www.facebook.com/share/19LcNFK8Ao/" target="_blank" rel="noopener"><span><span class="platform-tag">Facebook</span>Monika Anandan</span></a>
+    <a class="profile-link" href="https://youtube.com/@notebymonikaanand?feature=shared" target="_blank" rel="noopener"><span><span class="platform-tag">YouTube</span>@notebymonikaanand</span></a>
+    <a class="profile-link" href="https://www.snapchat.com/add/m_anandan23?share_id=dpW78G0BSgY&locale=en-IN" target="_blank" rel="noopener"><span><span class="platform-tag">Snapchat</span>m_anandan23</span></a>
+    <a class="profile-link" href="https://x.com/AnandhanMo90488" target="_blank" rel="noopener"><span><span class="platform-tag">Twitter / X</span>@AnandhanMo90488</span></a>
+    <a class="profile-link" href="https://t.me/mybusinessavenminds" target="_blank" rel="noopener"><span><span class="platform-tag">Telegram</span>mybusinessavenminds</span></a>
+    <a class="profile-link" href="https://whatsapp.com/channel/0029VbECnow72WTsmRGdky32" target="_blank" rel="noopener"><span><span class="platform-tag">WhatsApp · Personal</span>Channel</span></a>
+    <a class="profile-link" href="https://whatsapp.com/channel/0029VbAxGVvIt5s1Sdk8d42J" target="_blank" rel="noopener"><span><span class="platform-tag">WhatsApp · Business</span>Channel</span></a>
+    <a class="profile-link" href="https://chat.whatsapp.com/FU5ylkWWKRCKItfUYJdMzy?s=cl&p=a&ilr=1" target="_blank" rel="noopener"><span><span class="platform-tag">WhatsApp · Community</span>Group Chat</span></a>
+    <a class="profile-link" href="https://www.linkedin.com/in/monika-anand-618330277" target="_blank" rel="noopener"><span><span class="platform-tag">LinkedIn · Founder</span>Monika Anand</span></a>
+    <a class="profile-link" href="https://www.linkedin.com/company/avenminds/" target="_blank" rel="noopener"><span><span class="platform-tag">LinkedIn · Business</span>AvenMinds</span></a>
+    <a class="profile-link" href="https://www.threads.com/@monikaanand_m.a" target="_blank" rel="noopener"><span><span class="platform-tag">Threads</span>@monikaanand_m.a</span></a>
+  </div>
+</section>
+
+<!-- ============ PARTNERS & COLLABORATIONS ============ -->
+<section class="section alt" id="partners">
+  <div class="section-head">
+    <p class="eyebrow">Collaborations</p>
+    <h2>Business Partners I've Worked With</h2>
+    <p class="section-sub">Project-wise partners and brands I've supported. Drop each partner's logo into <code>/images/partners</code> using a matching file name to replace these placeholders.</p>
+  </div>
+
+  <div class="grid-partners" id="partnersGrid">
+    <div class="partner-card">
+      <div class="placeholder-frame" data-placeholder-img="images/partners/rudrastic-innovations.jpg">
+        <span class="placeholder-icon">🖼️</span>
+        <span>Add logo</span>
+      </div>
+      <h4>Rudrastic Innovations</h4>
+      <p>Add your project details here</p>
+    </div>
+    <div class="partner-card">
+      <div class="placeholder-frame" data-placeholder-img="images/partners/partner-2.jpg">
+        <span class="placeholder-icon">🖼️</span>
+        <span>Add logo</span>
+      </div>
+      <h4>Partner Name</h4>
+      <p>Add your project details here</p>
+    </div>
+    <div class="partner-card">
+      <div class="placeholder-frame" data-placeholder-img="images/partners/partner-3.jpg">
+        <span class="placeholder-icon">🖼️</span>
+        <span>Add logo</span>
+      </div>
+      <h4>Partner Name</h4>
+      <p>Add your project details here</p>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CONNECT ============ -->
 <section class="section connect-section" id="connect">
   <div class="section-head">
     <p class="eyebrow">Let's Connect</p>
     <h2>Follow along or reach out directly</h2>
     <p class="section-sub">Daily content, business updates and behind-the-scenes across every platform below — pick whichever fits how you want to connect.</p>
+  </div>
+
+  <div class="contact-card">
+    <div class="contact-item">
+      <h4>Mobile</h4>
+      <a href="tel:+918248802124">+91 82488 02124</a>
+    </div>
+    <div class="contact-item">
+      <h4>WhatsApp</h4>
+      <a href="https://wa.me/919498021478" target="_blank" rel="noopener">+91 94980 21478</a>
+    </div>
+    <div class="contact-item">
+      <h4>Email · Personal</h4>
+      <a href="mailto:monikaanandan2000@gmail.com">monikaanandan2000@gmail.com</a>
+    </div>
+    <div class="contact-item">
+      <h4>Email · Official</h4>
+      <a href="mailto:info@avenminds.com">info@avenminds.com</a><br>
+      <a href="mailto:monika.anandan@avenminds.com">monika.anandan@avenminds.com</a>
+    </div>
+    <div class="contact-item resume-cta">
+      <h4>Resume</h4>
+      <a href="https://drive.google.com/drive/u/0/folders/1ZFFcfhhjm0-0OkhqNjQDj8CRNiewk0hB" target="_blank" rel="noopener" class="btn btn-primary">View / Download Resume</a>
+    </div>
   </div>
 
   <div class="grid grid-connect" id="connectGrid"></div>
@@ -164,6 +468,13 @@
     <div id="modalBody"></div>
   </div>
 </div>
+
+<!-- ============ WHATSAPP FLOATING CHAT BUTTON ============ -->
+<a class="whatsapp-float" href="https://wa.me/919498021478" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.31.65 4.47 1.78 6.31L4 29l7.9-1.74A11.93 11.93 0 0 0 16.004 27C22.63 27 28 21.63 28 15S22.63 3 16.004 3zm0 21.8c-1.95 0-3.77-.53-5.33-1.46l-.38-.22-4.69 1.03 1.05-4.58-.25-.4A9.77 9.77 0 0 1 5.2 15c0-5.96 4.85-10.8 10.8-10.8S26.8 9.04 26.8 15 21.96 24.8 16.004 24.8zm5.98-8.1c-.33-.16-1.94-.96-2.24-1.07-.3-.11-.52-.16-.74.16-.22.33-.85 1.07-1.04 1.29-.19.22-.38.24-.71.08-.33-.16-1.38-.51-2.63-1.63-.97-.86-1.63-1.93-1.82-2.26-.19-.33-.02-.5.14-.67.15-.15.33-.38.5-.57.16-.19.22-.33.33-.55.11-.22.06-.41-.03-.57-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56-.19-.01-.41-.01-.63-.01-.22 0-.57.08-.87.41-.3.33-1.14 1.11-1.14 2.72s1.17 3.16 1.33 3.38c.16.22 2.31 3.52 5.6 4.94.78.34 1.39.54 1.87.69.79.25 1.5.21 2.07.13.63-.09 1.94-.79 2.21-1.56.27-.77.27-1.43.19-1.56-.08-.13-.3-.22-.63-.38z"/>
+  </svg>
+</a>
 
 <script src="js/data.js"></script>
 <script src="js/script.js"></script>
