@@ -157,6 +157,74 @@
     margin-top: 0.15rem;
   }
 
+  /* ---- Tech Stack section ---- */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+  .stack-card {
+    background: #fff;
+    border: 1px solid #ececf5;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 24px rgba(20, 20, 50, 0.05);
+  }
+  .stack-card h3 {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+    color: #1c1c2e;
+  }
+  .stack-card h3 span {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #8b8ba7;
+    margin-bottom: 0.2rem;
+  }
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .tag-pill {
+    background: #f6f6fb;
+    border: 1px solid #ececf5;
+    color: #33334a;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+  }
+
+  /* ---- Business Tools section ---- */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+  .tools-card {
+    background: #fff;
+    border: 1px solid #ececf5;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 24px rgba(20, 20, 50, 0.05);
+  }
+  .tools-card h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+    color: #1c1c2e;
+  }
+  .tools-card .tools-domain {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #8b8ba7;
+    margin-bottom: 0.85rem;
+  }
+
   /* ---- WhatsApp floating chat button ---- */
   .whatsapp-float {
     position: fixed;
@@ -191,6 +259,8 @@
       <a href="#open-for">Collaborate</a>
       <a href="#community">Community</a>
       <a href="#experience">Experience</a>
+      <a href="#techstack">Tech Stack</a>
+      <a href="#tools">Business Tools</a>
       <a href="#gallery">Gallery</a>
       <a href="#profiles">Profiles</a>
       <a href="#partners">Partners</a>
@@ -345,6 +415,103 @@
           <span class="period">April 2017 – March 2020</span>
         </li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TECH STACK ============ -->
+<section class="section alt" id="techstack">
+  <div class="section-head">
+    <p class="eyebrow">What I Build With</p>
+    <h2>Technology Stack</h2>
+    <p class="section-sub">The tools and technologies I use across the software side of my work. Edit any list below to match exactly what you use — these are placeholders to get you started.</p>
+  </div>
+
+  <div class="stack-grid">
+    <div class="stack-card">
+      <h3><span>Layer</span>Frontend</h3>
+      <div class="tag-list">
+        <span class="tag-pill">HTML5</span>
+        <span class="tag-pill">CSS3</span>
+        <span class="tag-pill">JavaScript</span>
+        <span class="tag-pill">React.js</span>
+        <span class="tag-pill">Angular</span>
+        <span class="tag-pill">Bootstrap</span>
+      </div>
+    </div>
+    <div class="stack-card">
+      <h3><span>Layer</span>Backend</h3>
+      <div class="tag-list">
+        <span class="tag-pill">Node.js</span>
+        <span class="tag-pill">Java / Spring Boot</span>
+        <span class="tag-pill">Python</span>
+        <span class="tag-pill">REST APIs</span>
+        <span class="tag-pill">Microservices</span>
+      </div>
+    </div>
+    <div class="stack-card">
+      <h3><span>Layer</span>Database</h3>
+      <div class="tag-list">
+        <span class="tag-pill">MySQL</span>
+        <span class="tag-pill">PostgreSQL</span>
+        <span class="tag-pill">MongoDB</span>
+        <span class="tag-pill">Oracle DB</span>
+      </div>
+    </div>
+    <div class="stack-card">
+      <h3><span>Layer</span>Cloud</h3>
+      <div class="tag-list">
+        <span class="tag-pill">AWS</span>
+        <span class="tag-pill">Azure</span>
+        <span class="tag-pill">Docker</span>
+        <span class="tag-pill">Kubernetes</span>
+        <span class="tag-pill">CI/CD</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUSINESS TOOLS & PLATFORMS ============ -->
+<section class="section" id="tools">
+  <div class="section-head">
+    <p class="eyebrow">Beyond Code</p>
+    <h2>Tools I Use Across My Business Roles</h2>
+    <p class="section-sub">Platforms I rely on for the consulting, finance and HR side of running a multi-sector practice. Swap these for your exact tools any time.</p>
+  </div>
+
+  <div class="tools-grid">
+    <div class="tools-card">
+      <h3>Accounts &amp; Finance</h3>
+      <span class="tools-domain">CRM · ERP · Bookkeeping</span>
+      <div class="tag-list">
+        <span class="tag-pill">Tally</span>
+        <span class="tag-pill">SAP</span>
+        <span class="tag-pill">Zoho CRM</span>
+        <span class="tag-pill">Salesforce</span>
+        <span class="tag-pill">QuickBooks</span>
+      </div>
+    </div>
+    <div class="tools-card">
+      <h3>HR Recruitment</h3>
+      <span class="tools-domain">Job Portals</span>
+      <div class="tag-list">
+        <span class="tag-pill">Naukri</span>
+        <span class="tag-pill">LinkedIn Jobs</span>
+        <span class="tag-pill">Indeed</span>
+        <span class="tag-pill">Instahyre</span>
+        <span class="tag-pill">Foundit</span>
+      </div>
+    </div>
+    <div class="tools-card">
+      <h3>HR &amp; Document Handling</h3>
+      <span class="tools-domain">HRMS · Documentation</span>
+      <div class="tag-list">
+        <span class="tag-pill">Zoho People</span>
+        <span class="tag-pill">Keka HRMS</span>
+        <span class="tag-pill">Google Workspace</span>
+        <span class="tag-pill">Notion</span>
+        <span class="tag-pill">DocuSign</span>
+      </div>
     </div>
   </div>
 </section>
