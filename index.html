@@ -13,16 +13,22 @@
      stylesheet. Move any of this into css/style.css any time. -->
 <style>
   /* ---- Nav brand: clean single-line heading look ---- */
-  .nav-inner { display: flex; align-items: center; }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+  }
   .nav .brand,
   .nav-inner .brand {
-    font-size: 1.65rem;
+    font-size: 1.25rem;
     font-weight: 800;
     line-height: 1;
     white-space: nowrap;
     letter-spacing: -0.01em;
     display: inline-flex;
     align-items: center;
+    margin-left: -0.35rem;
+    margin-right: 0.5rem;
   }
 
   /* ---- Subtle themed backgrounds for depth ---- */
@@ -274,10 +280,14 @@
     <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#services">Services</a>
+      <a href="#ideas">Ideas &amp; Articles</a>
       <a href="#open-for">Collaborate</a>
       <a href="#community">Community</a>
       <a href="#experience">Experience</a>
+      <a href="#techstack">Tech Stack</a>
       <a href="#tools">Business Tools</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#profiles">Profiles</a>
       <a href="#partners">Partners</a>
       <a href="#connect" class="nav-cta">Connect</a>
     </nav>
