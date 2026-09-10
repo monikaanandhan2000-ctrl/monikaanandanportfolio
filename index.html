@@ -520,7 +520,6 @@
     <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#services">Services</a>
-      <a href="#works">Previous Works</a>
       <a href="#open-for">Collaborate</a>
       <a href="#profiles">Profiles</a>
       <a href="#partners">Partners</a>
@@ -732,6 +731,7 @@ header nav a {
   .work-btn-case:hover { border-color: #a5b4fc; color: #fff; }
 
   /* Case study modal (scoped to this section) */
+<style>
   .wk-overlay {
     position: fixed; inset: 0; z-index: 1200; display: none;
     background: rgba(6,6,16,.78); backdrop-filter: blur(6px);
@@ -806,6 +806,7 @@ header nav a {
       s:"Brand website for my own EdTech startup — courses, mentorship and placement support.",
       d:"I founded and built AvenMinds as a full brand presence for our EdTech practice: information architecture, course catalogue, mentor profiles, enquiry funnels and an SEO-ready content structure. I owned everything from positioning and copy to design system, build and deployment.",
       b:"The site became the primary acquisition channel for the training business — turning cold traffic into structured course enquiries and giving parents and students one credible place to evaluate programmes before enrolling.",
+      e:"This project gave me end-to-end experience in building a digital product around an actual education business rather than treating the website as only a visual presence. I worked across business positioning, user experience, content structure, development and deployment, while keeping the platform focused on how students and parents discover and evaluate learning programmes. From a business perspective, the platform helped create a more professional customer journey, improve the way enquiries were handled and establish a scalable digital foundation for future AvenMinds products and services.",
       a:["Launched the AvenMinds brand from zero to a live, fully indexed site","400+ students onboarded through enquiry flows originating on the website","Cut enquiry-to-counselling time by centralising course details and FAQs","Built a reusable design system now reused across AvenMinds sub-products"],
       t:["React","Next.js","TypeScript","Tailwind CSS","Node.js","SEO","Vercel"] },
 
@@ -813,6 +814,7 @@ header nav a {
       s:"Multi-role EdTech product with separate Student, Teacher and Admin experiences.",
       d:"I architected a role-based learning platform with three distinct panels. Students get enrolled courses, live class links, assignments and progress tracking. Teachers get batch management, content upload, attendance and grading. Admin gets user management, course publishing, fee/enrolment oversight and reporting. Built on secure authentication with role-scoped routing and row-level data access.",
       b:"Replaced spreadsheets, WhatsApp groups and manual attendance with one system — giving the academy operational visibility and letting a small team run many more batches without extra staff.",
+      e:"My experience on this project was strongly focused on converting an education operation into a structured digital workflow. Instead of creating separate disconnected tools, I designed the platform around the needs of students, teachers and administrators so each user could complete their responsibilities inside the same ecosystem. This helped the business reduce dependency on manual processes, improve operational visibility and create a foundation that can support more courses, batches and users as the academy grows.",
       a:["Designed a 3-tier RBAC model (Student / Teacher / Admin) from scratch","Automated attendance, grading and progress reports that were previously manual","Supported concurrent live batches with zero data-isolation incidents","Reduced admin workload per batch dramatically through bulk operations"],
       t:["React","TypeScript","Node.js","PostgreSQL","JWT / RBAC","REST APIs","Tailwind CSS","Cloud Deploy"] },
 
@@ -820,6 +822,7 @@ header nav a {
       s:"Production &amp; media house website with a cinematic portfolio experience.",
       d:"Built a visual-first site for a production media company: showreel-led hero, project galleries, service breakdowns for film/ad/photo shoots and a booking enquiry flow. Focused heavily on media optimisation so heavy video and imagery still load fast.",
       b:"Gave the studio a credible digital shopfront to pitch brands and agencies — replacing scattered Drive links with a single, professional portfolio clients can browse in a meeting.",
+      e:"This project strengthened my experience in balancing creative presentation with business requirements. For a media company, the website itself becomes part of the sales presentation, so I focused on making the company's work easy to discover while ensuring that large visual assets did not compromise usability. The final experience helped the studio present its capabilities professionally to potential brands and agencies and created a more structured path from portfolio discovery to production enquiry.",
       a:["Cinematic, media-heavy site delivered with fast load performance","Structured showreel + gallery system the team can extend themselves","Converted portfolio browsing into direct production enquiries"],
       t:["HTML5","CSS3","JavaScript","GSAP Animations","Responsive Media","CDN Optimisation"] },
 
@@ -827,6 +830,7 @@ header nav a {
       s:"Corporate website for a staffing &amp; recruitment consulting firm.",
       d:"Delivered a trust-driven corporate site: service verticals, hiring process explainer, industries served, client logos, careers listings and separate enquiry paths for employers and candidates.",
       b:"Positioned the firm credibly against larger competitors and split incoming traffic into two clean funnels — companies looking to hire and candidates looking for roles — so the sales team stopped triaging mixed leads.",
+      e:"My role in this project was not limited to building pages; I approached the platform from the perspective of how a recruitment business communicates with two different audiences. Employers need confidence in the staffing service, while candidates need clear information about opportunities and the hiring process. By separating these journeys digitally, I helped create a more organised lead-generation structure that supports business development while making the recruitment experience easier to understand for candidates.",
       a:["Dual-funnel lead capture (employer vs candidate) built into one site","Clear service and process pages that shortened client sales conversations","Careers section that made candidate sourcing self-serve"],
       t:["HTML5","CSS3","JavaScript","Responsive Design","Form Automation","SEO"] },
 
@@ -834,6 +838,7 @@ header nav a {
       s:"Website for a marketing &amp; advertising agency, built to sell results.",
       d:"Built an agency site around outcomes rather than services — campaign case blocks, channel-wise offerings (SEO, paid ads, social, branding), proof sections and a fast enquiry funnel with conversion tracking wired in.",
       b:"An advertising agency is judged by its own marketing. This site gave Digimast the performance, structure and analytics to credibly pitch clients, and to measure which channels actually brought business in.",
+      e:"Working on this project gave me practical experience in connecting website development with digital marketing objectives. I structured the experience around what prospective clients want to understand before engaging an agency: capabilities, proof, outcomes and a clear way to enquire. The project demonstrated how technology and marketing can work together to create a measurable business funnel instead of having a website function only as an online brochure.",
       a:["Conversion-focused layout with analytics and event tracking built in","Channel-wise service pages that improved organic discovery","Gave the agency measurable proof of its own funnel performance"],
       t:["HTML5","CSS3","JavaScript","Google Analytics","SEO","Performance Optimisation"] },
 
@@ -841,6 +846,7 @@ header nav a {
       s:"Sustainability-led corporate website with a clean, green identity.",
       d:"Designed and built the full brand site — company story, green solution offerings, process, sustainability commitments and contact routing — with a lightweight, accessible front end.",
       b:"Gave the business a professional, credible presence for partner and B2B conversations in the sustainability space, where trust signals matter more than flash.",
+      e:"This project gave me experience in translating a sustainability-focused business identity into a professional digital platform. I concentrated on clarity, credibility and accessibility so that potential partners and B2B prospects could quickly understand the company's purpose, offerings and values. The result supported the business development process by providing a clear digital reference point that could be shared during partnership and business conversations.",
       a:["Clean brand identity translated into a fast, accessible website","Structured B2B enquiry routing to the right internal contacts","Lightweight build with strong mobile performance"],
       t:["HTML5","CSS3","JavaScript","Responsive Design","Accessibility","SEO"] },
 
@@ -848,6 +854,7 @@ header nav a {
       s:"Gym management application for members — plans, bookings and progress.",
       d:"Built the member-facing application: membership plans, sign-up and login, class/slot booking, trainer schedules, workout and attendance tracking, and payment status. Deployed on an edge runtime for fast global response times.",
       b:"Took a gym running on registers and WhatsApp to a real digital product — members self-serve their bookings and renewals, and the gym stopped losing revenue to missed renewals.",
+      e:"This project allowed me to work directly on the digital transformation of a service-based business. I designed the member experience around the complete customer lifecycle, from joining the gym through booking, training and renewal. The objective was to reduce manual dependency while making the service more convenient for members. For the business, this created better visibility into memberships, bookings and renewals and established a digital workflow that can scale as the customer base grows.",
       a:["Full member lifecycle digitised: join → book → train → renew","Edge-deployed for near-instant load on mobile networks","Automated renewal visibility that reduced silent member churn"],
       t:["React","TypeScript","Cloudflare Workers","Edge Runtime","D1 / SQL","Tailwind CSS","Auth"] },
 
@@ -855,6 +862,7 @@ header nav a {
       s:"Secure admin console powering the FitZone operation behind the scenes.",
       d:"Built the protected admin side: authenticated login, member CRUD, plan and pricing management, trainer and class scheduling, attendance oversight, payment/renewal tracking and revenue dashboards.",
       b:"Gave gym owners a single control room. Every front-desk action — enrol, renew, reschedule, chase a payment — happens in one authenticated place with an audit-friendly record.",
+      e:"My experience on the admin side was focused on giving business owners operational control rather than simply exposing data. I brought membership, trainers, schedules, attendance, payments and revenue information into a centralised system so that daily decisions could be made from one place. This type of project strengthened my ability to understand back-office requirements and convert repetitive business activities into structured software workflows.",
       a:["Role-protected admin authentication with session handling","Live revenue and membership dashboards for owner decision-making","Eliminated register-based errors in attendance and renewals"],
       t:["React","TypeScript","Cloudflare Workers","Protected Routes","SQL","Dashboard Charts","RBAC"] },
 
@@ -862,6 +870,7 @@ header nav a {
       s:"Pet care &amp; products platform with a warm, browsable storefront.",
       d:"Built a product-led site with categories, product detail pages, care content and enquiry/order flows — designed around how pet parents actually shop: photos first, trust second, checkout third.",
       b:"Moved the business from Instagram DMs to a structured catalogue, so customers can browse the full range without asking for prices one product at a time.",
+      e:"This project gave me experience in designing an online product discovery journey around real customer behaviour. I focused on making products easy to browse, understand and enquire about while keeping the experience simple for mobile users. From the business perspective, the platform helped organise a catalogue that was previously dependent on individual conversations and provided a more scalable digital channel for presenting products to customers.",
       a:["Full catalogue structure that scales as new products are added","Mobile-first shopping experience for a largely mobile audience","Reduced repetitive DM enquiries with self-serve product info"],
       t:["React","JavaScript","CSS3","Responsive UI","Catalogue Architecture","SEO"] },
 
@@ -869,6 +878,7 @@ header nav a {
       s:"Restaurant website with digital menu, gallery and reservations.",
       d:"Delivered a restaurant experience site: appetite-driven visual menu, category-wise dishes, story and ambience gallery, location/hours and a table-reservation and ordering enquiry flow.",
       b:"Replaced printed and PDF menus with a live digital one the owner can update, and turned search traffic into reservations instead of phone-tag.",
+      e:"My experience on this project involved combining hospitality branding with practical customer conversion. A restaurant website needs to answer immediate customer questions while also creating enough visual appeal to encourage a visit or reservation. I structured the platform around menu discovery, ambience, location and enquiry actions, helping the business move from static information toward a more useful digital customer journey.",
       a:["Live digital menu the restaurant updates without a developer","Reservation funnel built directly into the browsing experience","Fast, image-optimised delivery on a global CDN"],
       t:["HTML5","CSS3","JavaScript","Netlify","Responsive Design","Image Optimisation"] },
 
@@ -876,6 +886,7 @@ header nav a {
       s:"Real estate website with property listings and lead capture.",
       d:"Built a property discovery site: listing grid with filters, individual property pages with specs and galleries, location context, and enquiry forms routed to the sales team.",
       b:"Gave buyers a way to shortlist properties before ever calling — so the sales team spent their time on qualified, informed leads instead of first-round explanations.",
+      e:"This project gave me strong experience in connecting real estate technology with lead generation. I designed the property browsing experience so that potential buyers could understand the available inventory and shortlist properties before contacting the sales team. This reduces unnecessary first-level communication and helps sales teams spend more time with prospects who already understand the property they are interested in.",
       a:["Filterable listing architecture that scales with inventory","Qualified lead capture attached to each individual property","Strong local SEO structure for location-based property searches"],
       t:["HTML5","CSS3","JavaScript","Listing CMS","Lead Forms","Local SEO"] },
 
@@ -883,6 +894,7 @@ header nav a {
       s:"End-to-end CRM built for real estate sales teams.",
       d:"Engineered a full CRM: secure authentication, lead capture from multiple sources, pipeline stages, site-visit scheduling, agent assignment, follow-up reminders, activity timelines, property inventory mapping and management dashboards with conversion reporting.",
       b:"Real estate lives or dies on follow-up. This CRM made every lead traceable from first enquiry to closure, so nothing leaked between agents and managers could see exactly where deals were stalling.",
+      e:"Nexus was one of the projects where my experience went beyond front-end development into understanding an entire business sales process. I worked with the concept of a lead moving through different stages, different employees handling different responsibilities and management requiring visibility into the pipeline. The system therefore became a business-management tool rather than just a CRM interface, helping create accountability around follow-ups and giving management better information for sales decisions.",
       a:["Complete lead-to-closure pipeline with zero-leak follow-up tracking","Role-based access for agents, managers and admins","Conversion dashboards that exposed where deals were dropping","Automated reminders that lifted follow-up discipline across the team"],
       t:["React","TypeScript","Node.js","PostgreSQL","REST APIs","JWT Auth","RBAC","Dashboard Analytics"] },
 
@@ -890,6 +902,7 @@ header nav a {
       s:"Full AI agentic platform for automated voice calling and messaging.",
       d:"Built an agentic AI system that places and receives real voice calls and runs messaging conversations autonomously: speech-to-text, LLM-driven reasoning with tool calling, text-to-speech, conversation memory, campaign management, call transcripts and outcome analytics — plus human handoff when the agent hits its limits.",
       b:"Replaced entire tiers of manual calling and follow-up. The business can now run outreach, qualification and reminders around the clock at a fraction of the per-conversation cost of a human team, with every conversation transcribed and measurable.",
+      e:"This project gave me direct experience in applying AI to a real business communication workflow. Instead of using AI only as a chatbot, I worked on an agentic system capable of handling conversations, reasoning through tasks, using tools, maintaining conversation context and handing work back to humans when required. The business value comes from automation and scale: repetitive outreach and qualification activities can operate continuously while conversations remain measurable through transcripts, campaigns and outcome analytics.",
       a:["Shipped a production agentic voice AI handling real inbound and outbound calls","Designed the STT → LLM → TTS pipeline with low-latency streaming","Built campaign orchestration with transcripts and outcome analytics","Enabled 24/7 lead qualification without adding headcount"],
       t:["Python","Node.js","LLM APIs","Agentic Tool Calling","Speech-to-Text","Text-to-Speech","Twilio / Telephony","WebSockets","Vector DB"] },
 
@@ -897,6 +910,7 @@ header nav a {
       s:"Residential project microsite built to sell units.",
       d:"Built a dedicated property microsite: project highlights, floor plans, amenities, gallery, location advantages and a high-intent enquiry/site-visit booking form.",
       b:"Gave the developer a focused, campaign-ready landing destination for paid and offline promotion, converting interest into booked site visits rather than generic enquiries.",
+      e:"This project helped me understand how a focused microsite can support a specific property sales campaign. Instead of presenting an entire company's inventory, the experience was designed around one residential project and the information potential buyers need before deciding to visit. The platform therefore became a sales-support asset that could be used across digital advertising, offline promotions and direct customer conversations.",
       a:["Campaign-ready microsite optimised for site-visit conversions","Floor plan and amenity presentation that reduced sales-call friction","Fast mobile load for ad-driven traffic"],
       t:["HTML5","CSS3","JavaScript","Responsive Design","Lead Capture","Landing Page Optimisation"] },
 
@@ -904,6 +918,7 @@ header nav a {
       s:"Published Android application, live on the Google Play Store.",
       d:"Built and shipped a mobile app end to end: UI/UX, core feature logic, local and remote data handling, offline-friendly state, release signing and full Play Store submission including listing assets and policy compliance.",
       b:"Put the product directly on users' home screens — a distribution channel a website can't replicate — with in-app engagement instead of one-off visits.",
+      e:"This project gave me end-to-end mobile application delivery experience, from interface development and application logic through release preparation and Play Store submission. I was involved in the complete product journey rather than stopping after development. From a business perspective, publishing the application created a direct mobile channel to users, allowing the product to become part of their regular device experience instead of depending entirely on browser-based visits.",
       a:["Successfully published and approved on the Google Play Store","Owned the full release pipeline: build → sign → submit → update","Smooth, native-feeling UX with offline resilience"],
       t:["React Native / Android","JavaScript","REST APIs","Local Storage","Play Console","Release Signing"] },
 
@@ -911,6 +926,7 @@ header nav a {
       s:"Notes and study companion app published on Google Play.",
       d:"Developed a notes/study application with content organisation, search, categorised material, offline reading and update delivery — then handled store listing, versioning and post-launch updates.",
       b:"Gave learners always-available access to study material on mobile, turning scattered PDFs and links into one organised, searchable app.",
+      e:"My experience on this project focused on transforming scattered learning material into an organised mobile product. The application was structured around how students actually consume study resources, including search, categories and offline access. This helped create a more convenient learning channel for users while giving the product owner a structured platform that could continue to receive content and application updates after launch.",
       a:["Live on the Play Store with an ongoing update cycle","Offline access so students can study without connectivity","Search and categorisation that made large content sets usable"],
       t:["Android","JavaScript / Java","Local DB","Offline Sync","Play Console"] },
 
@@ -918,6 +934,7 @@ header nav a {
       s:"Organisation and social-movement website with heavy content depth.",
       d:"Structured and built a content-rich organisational site: mission and history, articles and archives, events, media sections and volunteer/contact pathways — with an information architecture that keeps deep content navigable.",
       b:"Preserved and distributed the organisation's material to a wider public audience, giving a movement with a lot to say a structured, searchable home instead of scattered posts.",
+      e:"This project gave me valuable experience in handling a content-heavy organisation where information architecture was as important as visual design. I focused on creating a structure that could hold history, articles, archives, events and media without making the experience difficult to navigate. From a business and organisational perspective, the platform created a central digital destination for information, public engagement and wider content distribution.",
       a:["Designed IA for a large, growing content archive","Accessible, readable typography for long-form content","Mobile-first delivery for a predominantly mobile readership"],
       t:["HTML5","CSS3","JavaScript","CMS Integration","Content Architecture","SEO"] },
 
@@ -925,6 +942,7 @@ header nav a {
       s:"Heritage food &amp; hospitality brand website.",
       d:"Built a warm, story-led brand site: heritage narrative, product/menu showcase, photo galleries and enquiry or ordering pathways — visual design tuned to a traditional, homely brand voice.",
       b:"Translated a strongly offline, word-of-mouth brand into a digital presence that carries the same warmth, opening it to customers who discover it through search and social.",
+      e:"This project allowed me to work on the digital transformation of a traditional food and hospitality brand. The challenge was to preserve the emotional and cultural identity of the brand while creating a modern experience for online visitors. I focused on storytelling, product presentation and simple enquiry or ordering journeys, helping the business extend its existing offline reputation into a digital environment where new customers can discover and understand the brand.",
       a:["Brand storytelling translated faithfully into a digital experience","Visual-forward layout that drove product interest","Clean mobile browsing for on-the-go ordering intent"],
       t:["HTML5","CSS3","JavaScript","Responsive Design","Image Optimisation","SEO"] },
 
@@ -932,6 +950,7 @@ header nav a {
       s:"Creator and celebrity engagement platform.",
       d:"Worked on a multi-sided platform connecting fans with creators and celebrities: profile and talent discovery, categorised browsing, booking/request flows, user accounts and transactional pathways between two very different user types.",
       b:"Gave creators a monetisable, structured channel for fan engagement and gave fans a trustworthy way to book them — replacing untracked DMs with real transactions.",
+      e:"This project gave me experience working on a platform with two distinct user groups and different expectations from the same product. I had to think about discovery, profiles, requests, bookings and the complete transaction journey rather than treating each feature independently. From the business perspective, the platform helped formalise interactions that could otherwise happen through unstructured messages, creating a more organised environment for both creators and their audiences.",
       a:["Contributed to a live two-sided marketplace in production","Built discovery and booking flows for distinct user roles","Handled transactional request lifecycles end to end"],
       t:["React","JavaScript","Node.js","REST APIs","Payments Integration","Responsive UI"] },
 
@@ -939,6 +958,7 @@ header nav a {
       s:"Secure administrative portal for internal operations.",
       d:"Built the authenticated admin surface: login and session security, user and record management, operational dashboards, filtering and search over large data sets, and role-scoped permissions for different staff levels.",
       b:"Centralised back-office operations into one authenticated console, cutting out spreadsheet handoffs and giving management real-time visibility into day-to-day operations.",
+      e:"My experience on this project focused on internal business operations and the importance of making administrative systems reliable and easy to manage. I worked on secure access, record management, dashboards, search and role-based permissions so different levels of staff could work within the same controlled environment. The business benefit was greater operational visibility and less dependency on disconnected spreadsheets or manual reporting processes.",
       a:["Secure, role-scoped admin authentication","Operational dashboards replacing manual spreadsheet reporting","Fast filtering and search across large operational data sets"],
       t:["React","TypeScript","Node.js","SQL Database","JWT Auth","RBAC","Admin Dashboards"] },
 
@@ -946,6 +966,7 @@ header nav a {
       s:"Large-scale university web platform with multi-department content.",
       d:"Contributed to a high-traffic education platform: department and programme structures, admissions information and application pathways, faculty and research sections, news/events and student resource areas — all under strict accessibility and performance expectations.",
       b:"Supported admissions and institutional credibility at scale, making programme information findable for prospective students and reducing load on admissions staff.",
+      e:"Working on a university platform gave me experience with a much broader education ecosystem where different departments, programmes and audiences need to coexist within one digital platform. My focus was on organising information so prospective students, existing students and other visitors could find relevant content efficiently. The platform therefore served both an institutional communication purpose and a business objective by supporting admissions, reducing information friction and strengthening the university's digital presence.",
       a:["Worked on a high-traffic, multi-department institutional platform","Maintained accessibility and performance standards at scale","Structured admissions pathways that supported enrolment"],
       t:["HTML5","CSS3","JavaScript","CMS","Accessibility (WCAG)","Performance Optimisation","SEO"] },
 
@@ -953,6 +974,7 @@ header nav a {
       s:"IT services company website positioning technical capability.",
       d:"Built the corporate site around service verticals, engagement models, technology capabilities, case highlights and a qualified enquiry funnel for B2B prospects.",
       b:"Helped an IT services firm present real technical depth to enterprise buyers, shortening the credibility phase of the sales cycle.",
+      e:"This project strengthened my understanding of how a technology company needs to communicate its capabilities to potential clients. Instead of simply listing technologies, I structured the experience around services, engagement models, capabilities and proof points that support a B2B buying decision. The website became a business-development asset that could help prospects understand the company's offering before entering a direct sales conversation.",
       a:["Service and capability architecture aligned to B2B buying behaviour","Qualified enquiry funnel feeding the sales pipeline","Clean, fast corporate presence with SEO foundations"],
       t:["HTML5","CSS3","JavaScript","Responsive Design","SEO","Lead Forms"] },
 
@@ -960,6 +982,7 @@ header nav a {
       s:"Personal brand and thought-leadership website.",
       d:"Designed and built a personal brand site: positioning-led hero, about and credentials, expertise areas, media/speaking sections, content shelf and direct contact pathways.",
       b:"Turned an individual's reputation into a discoverable asset — one authoritative link for speaking invitations, media requests and business enquiries.",
+      e:"This project gave me experience in building a digital platform around an individual's professional reputation rather than a conventional company. I focused on communicating expertise, credibility and personal positioning in a structured way so visitors could quickly understand the person's background and areas of work. The business value was creating one authoritative digital destination that could support professional visibility, speaking opportunities, media enquiries and future collaborations.",
       a:["Distinct personal brand identity delivered end to end","Single authoritative destination for media and speaking enquiries","Content structure built to grow with new work"],
       t:["HTML5","CSS3","JavaScript","Responsive Design","Personal Branding","SEO"] },
 
@@ -967,6 +990,7 @@ header nav a {
       s:"Global business website for an international-facing company.",
       d:"Built a corporate site for a global audience: business verticals, international presence, capability and partnership sections, and region-aware contact routing — with performance tuned for visitors across geographies.",
       b:"Gave the company a credible international shopfront for cross-border partnership conversations, presenting a consistent brand to prospects in multiple markets.",
+      e:"My experience on this project focused on creating a professional digital presence for a business communicating with audiences across different markets. I worked on presenting the company's business areas, capabilities and partnership opportunities in a clear structure while keeping performance in mind for users from different geographies. The resulting platform supports international business development by giving potential partners and prospects a consistent place to understand the company and initiate conversations.",
       a:["International-grade corporate presence delivered end to end","Performance tuned for cross-geography load times","Structured partnership and business enquiry routing"],
       t:["HTML5","CSS3","JavaScript","Responsive Design","Performance","SEO","CDN"] }
   ];
@@ -1048,28 +1072,45 @@ header nav a {
     var b = e.target.closest(".work-btn-case");
     if (!b) return;
     var p = WORKS[+b.getAttribute("data-idx")];
+
     body.innerHTML =
       '<span class="work-tag">' + esc(p.c) + '</span>' +
       '<h3>' + p.n + '</h3>' +
       '<a class="wk-url" href="' + p.u + '" target="_blank" rel="noopener">' + esc(host(p.u)) + ' ↗</a>' +
+
       '<h4>The Project</h4><p>' + p.d + '</p>' +
+
       '<h4>How It Supported the Business</h4><p>' + p.b + '</p>' +
+
+      '<h4>My Experience &amp; Business Impact</h4><p>' + p.e + '</p>' +
+
       '<h4>Achievements</h4><ul>' + p.a.map(function (x) { return "<li>" + x + "</li>"; }).join("") + '</ul>' +
+
       '<h4>Tech Stack</h4><div class="work-stack">' + p.t.map(function (t) { return '<em>' + esc(t) + '</em>'; }).join("") + '</div>' +
+
       '<div class="wk-foot">' +
         '<a class="work-btn work-btn-live" href="' + p.u + '" target="_blank" rel="noopener">See Live ↗</a>' +
         '<button class="work-btn work-btn-case" id="wkDismiss">Close</button>' +
       '</div>';
+
     overlay.classList.add("is-open");
     document.body.style.overflow = "hidden";
   });
 
-  function close() { overlay.classList.remove("is-open"); document.body.style.overflow = ""; }
+  function close() {
+    overlay.classList.remove("is-open");
+    document.body.style.overflow = "";
+  }
+
   closeBtn.addEventListener("click", close);
+
   overlay.addEventListener("click", function (e) {
     if (e.target === overlay || e.target.id === "wkDismiss") close();
   });
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") close();
+  });
 
   render("All");
 })();
