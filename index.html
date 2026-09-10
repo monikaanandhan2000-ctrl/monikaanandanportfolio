@@ -520,6 +520,7 @@
     <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#services">Services</a>
+      <a href="#works">Previous Works</a>
       <a href="#open-for">Collaborate</a>
       <a href="#profiles">Profiles</a>
       <a href="#partners">Partners</a>
@@ -607,6 +608,474 @@ header nav a {
 
   <div class="grid grid-services" id="servicesGrid"></div>
 </section>
+
+<!-- ============ PREVIOUS WORKS & ACHIEVEMENTS (ADDED SECTION) ============ -->
+<style>
+  /* ===== Works section: intentionally its own dark, editorial theme ===== */
+  #works {
+    position: relative;
+    padding: 5.5rem 1.5rem 6rem;
+    background:
+      radial-gradient(900px 500px at 12% -10%, rgba(99,102,241,.28), transparent 60%),
+      radial-gradient(800px 500px at 92% 8%, rgba(236,72,153,.22), transparent 60%),
+      linear-gradient(180deg, #0b0b18 0%, #12122a 55%, #0b0b18 100%);
+    color: #e9e9f5;
+    overflow: hidden;
+  }
+  #works::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(70% 60% at 50% 30%, #000 40%, transparent 100%);
+    pointer-events: none;
+  }
+  .works-inner { position: relative; max-width: 1200px; margin: 0 auto; }
+  .works-head { max-width: 820px; margin-bottom: 2.5rem; }
+  .works-eyebrow {
+    display: inline-flex; align-items: center; gap: .5rem;
+    font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
+    color: #c7d2fe; background: rgba(99,102,241,.16);
+    border: 1px solid rgba(147,197,253,.28);
+    padding: .4rem .8rem; border-radius: 999px; margin: 0 0 1rem;
+  }
+  .works-head h2 {
+    margin: 0 0 .9rem; font-size: clamp(1.9rem, 4vw, 2.9rem);
+    line-height: 1.12; color: #fff; letter-spacing: -.02em;
+  }
+  .works-head p { margin: 0; color: #a9abcb; font-size: 1.02rem; line-height: 1.7; }
+
+  .works-stats {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem; margin: 2rem 0 2.4rem;
+  }
+  .works-stats div {
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09);
+    border-radius: 14px; padding: 1rem 1.1rem;
+  }
+  .works-stats strong { display: block; font-size: 1.7rem; color: #fff; line-height: 1.1; }
+  .works-stats span { font-size: .82rem; color: #9ea0c2; }
+
+  .works-filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
+  .works-filter {
+    cursor: pointer; font: inherit; font-size: .82rem; font-weight: 600;
+    color: #b9bbdd; background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.12); border-radius: 999px;
+    padding: .5rem .95rem; transition: all .2s ease;
+  }
+  .works-filter:hover { color: #fff; border-color: rgba(167,139,250,.6); }
+  .works-filter.is-active { color: #12122a; background: linear-gradient(120deg,#a5b4fc,#f0abfc); border-color: transparent; }
+
+  .works-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.4rem;
+  }
+  .work-card {
+    display: flex; flex-direction: column;
+    background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+    border: 1px solid rgba(255,255,255,.10); border-radius: 20px; overflow: hidden;
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .work-card:hover { transform: translateY(-6px); border-color: rgba(167,139,250,.55); box-shadow: 0 24px 60px rgba(0,0,0,.45); }
+
+  /* CSS-drawn preview: a mini browser/app frame that hints how each product works */
+  .work-shot { position: relative; padding: .8rem; }
+  .work-frame {
+    border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,.12);
+    background: #0e0e20;
+  }
+  .work-bar {
+    display: flex; align-items: center; gap: .35rem;
+    padding: .5rem .7rem; background: rgba(255,255,255,.07);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .work-bar i { width: 8px; height: 8px; border-radius: 50%; background: #ff5f57; display: block; }
+  .work-bar i:nth-child(2) { background: #febc2e; }
+  .work-bar i:nth-child(3) { background: #28c840; }
+  .work-bar span {
+    margin-left: .5rem; font-size: .62rem; color: #9aa0c9; letter-spacing: .04em;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .work-canvas { height: 148px; padding: .85rem; display: grid; gap: .5rem; }
+  .work-canvas .ln { height: 9px; border-radius: 5px; background: rgba(255,255,255,.14); }
+  .work-canvas .ln.w70 { width: 70%; } .work-canvas .ln.w45 { width: 45%; }
+  .work-canvas .blocks { display: grid; grid-template-columns: repeat(3,1fr); gap: .5rem; }
+  .work-canvas .blocks b { display: block; height: 40px; border-radius: 8px; background: rgba(255,255,255,.10); }
+  .work-canvas .chart { display: flex; align-items: flex-end; gap: .35rem; height: 46px; }
+  .work-canvas .chart u { flex: 1; border-radius: 4px 4px 0 0; background: linear-gradient(180deg,#a5b4fc,#6366f1); }
+  .work-hue { background: linear-gradient(135deg, var(--h1), var(--h2)); }
+
+  .work-body { padding: .3rem 1.2rem 1.3rem; display: flex; flex-direction: column; flex: 1; }
+  .work-tag {
+    align-self: flex-start; font-size: .66rem; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: #0f0f22; background: linear-gradient(120deg,#a5b4fc,#f0abfc);
+    padding: .25rem .6rem; border-radius: 999px; margin-bottom: .6rem;
+  }
+  .work-body h3 { margin: 0 0 .35rem; font-size: 1.12rem; color: #fff; }
+  .work-body .work-sub { margin: 0 0 .8rem; font-size: .88rem; color: #a5a7c9; line-height: 1.6; }
+  .work-stack { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 1rem; }
+  .work-stack em {
+    font-style: normal; font-size: .68rem; font-weight: 600; color: #cfd3ff;
+    background: rgba(99,102,241,.18); border: 1px solid rgba(147,197,253,.22);
+    padding: .22rem .55rem; border-radius: 6px;
+  }
+  .work-actions { margin-top: auto; display: flex; gap: .55rem; flex-wrap: wrap; }
+  .work-btn {
+    cursor: pointer; font: inherit; font-size: .82rem; font-weight: 600;
+    padding: .55rem .95rem; border-radius: 10px; text-decoration: none;
+    display: inline-flex; align-items: center; gap: .35rem; transition: all .2s ease;
+  }
+  .work-btn-live { color: #10101f; background: linear-gradient(120deg,#a5b4fc,#f0abfc); border: 1px solid transparent; }
+  .work-btn-live:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .work-btn-case { color: #dcdcf5; background: transparent; border: 1px solid rgba(255,255,255,.2); }
+  .work-btn-case:hover { border-color: #a5b4fc; color: #fff; }
+
+  /* Case study modal (scoped to this section) */
+  .wk-overlay {
+    position: fixed; inset: 0; z-index: 1200; display: none;
+    background: rgba(6,6,16,.78); backdrop-filter: blur(6px);
+    padding: 2rem 1rem; overflow-y: auto;
+  }
+  .wk-overlay.is-open { display: block; }
+  .wk-modal {
+    position: relative; max-width: 780px; margin: 0 auto;
+    background: linear-gradient(180deg,#15152c,#0e0e1e);
+    border: 1px solid rgba(255,255,255,.14); border-radius: 22px;
+    padding: 2.2rem 1.8rem; color: #e7e7f6; box-shadow: 0 40px 90px rgba(0,0,0,.6);
+  }
+  .wk-close {
+    position: absolute; top: 1rem; right: 1rem; width: 36px; height: 36px;
+    border-radius: 50%; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.06);
+    color: #fff; font-size: 1.1rem; cursor: pointer; line-height: 1;
+  }
+  .wk-modal h3 { margin: .2rem 0 .3rem; font-size: 1.6rem; color: #fff; }
+  .wk-modal .wk-url { font-size: .82rem; color: #a5b4fc; word-break: break-all; text-decoration: none; }
+  .wk-modal h4 {
+    margin: 1.6rem 0 .6rem; font-size: .74rem; letter-spacing: .14em;
+    text-transform: uppercase; color: #f0abfc;
+  }
+  .wk-modal p { margin: 0 0 .6rem; line-height: 1.75; color: #c7c9e4; font-size: .95rem; }
+  .wk-modal ul { margin: 0; padding-left: 1.1rem; }
+  .wk-modal li { margin-bottom: .45rem; line-height: 1.7; color: #c7c9e4; font-size: .95rem; }
+  .wk-modal .work-stack { margin-top: .5rem; }
+  .wk-foot { margin-top: 1.8rem; display: flex; gap: .6rem; flex-wrap: wrap; }
+
+  @media (max-width: 640px) {
+    #works { padding: 4rem 1.1rem; }
+    .wk-modal { padding: 2rem 1.2rem; }
+  }
+</style>
+
+<section id="works">
+  <div class="works-inner">
+    <div class="works-head">
+      <p class="works-eyebrow">◆ Previous Works &amp; Achievements</p>
+      <h2>Products, portals and platforms I've actually shipped</h2>
+      <p>
+        Every project below is live work — websites, CRMs, multi-role portals, AI systems and mobile apps I designed,
+        engineered or led across EdTech, real estate, media, healthcare, hospitality, staffing and marketing.
+        Open any case study to see what I built, how it supported the business, the achievements it unlocked,
+        and the exact tech stack behind it.
+      </p>
+    </div>
+
+    <div class="works-stats">
+      <div><strong>22+</strong><span>Live Products Shipped</span></div>
+      <div><strong>9</strong><span>Industries Served</span></div>
+      <div><strong>2</strong><span>Play Store Apps</span></div>
+      <div><strong>6+</strong><span>Years of Delivery</span></div>
+    </div>
+
+    <div class="works-filters" id="worksFilters"></div>
+    <div class="works-grid" id="worksGrid"></div>
+  </div>
+</section>
+
+<div class="wk-overlay" id="wkOverlay">
+  <div class="wk-modal">
+    <button class="wk-close" id="wkClose" aria-label="Close">×</button>
+    <div id="wkBody"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var WORKS = [
+    { n:"AvenMinds", u:"https://www.avenminds.com", c:"EdTech", h:["#6366f1","#8b5cf6"], v:"chart",
+      s:"Brand website for my own EdTech startup — courses, mentorship and placement support.",
+      d:"I founded and built AvenMinds as a full brand presence for our EdTech practice: information architecture, course catalogue, mentor profiles, enquiry funnels and an SEO-ready content structure. I owned everything from positioning and copy to design system, build and deployment.",
+      b:"The site became the primary acquisition channel for the training business — turning cold traffic into structured course enquiries and giving parents and students one credible place to evaluate programmes before enrolling.",
+      a:["Launched the AvenMinds brand from zero to a live, fully indexed site","400+ students onboarded through enquiry flows originating on the website","Cut enquiry-to-counselling time by centralising course details and FAQs","Built a reusable design system now reused across AvenMinds sub-products"],
+      t:["React","Next.js","TypeScript","Tailwind CSS","Node.js","SEO","Vercel"] },
+
+    { n:"AvenMinds Learning Portal", u:"https://www.avenminds.portal.com", c:"EdTech", h:["#4f46e5","#06b6d4"], v:"dash",
+      s:"Multi-role EdTech product with separate Student, Teacher and Admin experiences.",
+      d:"I architected a role-based learning platform with three distinct panels. Students get enrolled courses, live class links, assignments and progress tracking. Teachers get batch management, content upload, attendance and grading. Admin gets user management, course publishing, fee/enrolment oversight and reporting. Built on secure authentication with role-scoped routing and row-level data access.",
+      b:"Replaced spreadsheets, WhatsApp groups and manual attendance with one system — giving the academy operational visibility and letting a small team run many more batches without extra staff.",
+      a:["Designed a 3-tier RBAC model (Student / Teacher / Admin) from scratch","Automated attendance, grading and progress reports that were previously manual","Supported concurrent live batches with zero data-isolation incidents","Reduced admin workload per batch dramatically through bulk operations"],
+      t:["React","TypeScript","Node.js","PostgreSQL","JWT / RBAC","REST APIs","Tailwind CSS","Cloud Deploy"] },
+
+    { n:"Rudra Studio", u:"https://rudra.studio/", c:"Media", h:["#ec4899","#f59e0b"], v:"grid",
+      s:"Production &amp; media house website with a cinematic portfolio experience.",
+      d:"Built a visual-first site for a production media company: showreel-led hero, project galleries, service breakdowns for film/ad/photo shoots and a booking enquiry flow. Focused heavily on media optimisation so heavy video and imagery still load fast.",
+      b:"Gave the studio a credible digital shopfront to pitch brands and agencies — replacing scattered Drive links with a single, professional portfolio clients can browse in a meeting.",
+      a:["Cinematic, media-heavy site delivered with fast load performance","Structured showreel + gallery system the team can extend themselves","Converted portfolio browsing into direct production enquiries"],
+      t:["HTML5","CSS3","JavaScript","GSAP Animations","Responsive Media","CDN Optimisation"] },
+
+    { n:"AscendX Staffing Solutions", u:"https://ascendxstaffingsolutions.com", c:"Consulting", h:["#0ea5e9","#22d3ee"], v:"list",
+      s:"Corporate website for a staffing &amp; recruitment consulting firm.",
+      d:"Delivered a trust-driven corporate site: service verticals, hiring process explainer, industries served, client logos, careers listings and separate enquiry paths for employers and candidates.",
+      b:"Positioned the firm credibly against larger competitors and split incoming traffic into two clean funnels — companies looking to hire and candidates looking for roles — so the sales team stopped triaging mixed leads.",
+      a:["Dual-funnel lead capture (employer vs candidate) built into one site","Clear service and process pages that shortened client sales conversations","Careers section that made candidate sourcing self-serve"],
+      t:["HTML5","CSS3","JavaScript","Responsive Design","Form Automation","SEO"] },
+
+    { n:"Digimast", u:"https://digimast.in", c:"Marketing", h:["#f43f5e","#fb923c"], v:"chart",
+      s:"Website for a marketing &amp; advertising agency, built to sell results.",
+      d:"Built an agency site around outcomes rather than services — campaign case blocks, channel-wise offerings (SEO, paid ads, social, branding), proof sections and a fast enquiry funnel with conversion tracking wired in.",
+      b:"An advertising agency is judged by its own marketing. This site gave Digimast the performance, structure and analytics to credibly pitch clients, and to measure which channels actually brought business in.",
+      a:["Conversion-focused layout with analytics and event tracking built in","Channel-wise service pages that improved organic discovery","Gave the agency measurable proof of its own funnel performance"],
+      t:["HTML5","CSS3","JavaScript","Google Analytics","SEO","Performance Optimisation"] },
+
+    { n:"RazeGreen", u:"https://razegreen.com", c:"Corporate", h:["#22c55e","#84cc16"], v:"grid",
+      s:"Sustainability-led corporate website with a clean, green identity.",
+      d:"Designed and built the full brand site — company story, green solution offerings, process, sustainability commitments and contact routing — with a lightweight, accessible front end.",
+      b:"Gave the business a professional, credible presence for partner and B2B conversations in the sustainability space, where trust signals matter more than flash.",
+      a:["Clean brand identity translated into a fast, accessible website","Structured B2B enquiry routing to the right internal contacts","Lightweight build with strong mobile performance"],
+      t:["HTML5","CSS3","JavaScript","Responsive Design","Accessibility","SEO"] },
+
+    { n:"FitZone Gym — Member App", u:"https://fitzone-gym.assorted-skirt.workers.dev/", c:"Web App", h:["#f97316","#ef4444"], v:"dash",
+      s:"Gym management application for members — plans, bookings and progress.",
+      d:"Built the member-facing application: membership plans, sign-up and login, class/slot booking, trainer schedules, workout and attendance tracking, and payment status. Deployed on an edge runtime for fast global response times.",
+      b:"Took a gym running on registers and WhatsApp to a real digital product — members self-serve their bookings and renewals, and the gym stopped losing revenue to missed renewals.",
+      a:["Full member lifecycle digitised: join → book → train → renew","Edge-deployed for near-instant load on mobile networks","Automated renewal visibility that reduced silent member churn"],
+      t:["React","TypeScript","Cloudflare Workers","Edge Runtime","D1 / SQL","Tailwind CSS","Auth"] },
+
+    { n:"FitZone Gym — Admin Panel", u:"https://fitzone-gym.assorted-skirt.workers.dev/admin/login", c:"Web App", h:["#facc15","#f97316"], v:"list",
+      s:"Secure admin console powering the FitZone operation behind the scenes.",
+      d:"Built the protected admin side: authenticated login, member CRUD, plan and pricing management, trainer and class scheduling, attendance oversight, payment/renewal tracking and revenue dashboards.",
+      b:"Gave gym owners a single control room. Every front-desk action — enrol, renew, reschedule, chase a payment — happens in one authenticated place with an audit-friendly record.",
+      a:["Role-protected admin authentication with session handling","Live revenue and membership dashboards for owner decision-making","Eliminated register-based errors in attendance and renewals"],
+      t:["React","TypeScript","Cloudflare Workers","Protected Routes","SQL","Dashboard Charts","RBAC"] },
+
+    { n:"Feathers &amp; Fur", u:"https://feathersandfur.in/", c:"E-Commerce", h:["#14b8a6","#22d3ee"], v:"grid",
+      s:"Pet care &amp; products platform with a warm, browsable storefront.",
+      d:"Built a product-led site with categories, product detail pages, care content and enquiry/order flows — designed around how pet parents actually shop: photos first, trust second, checkout third.",
+      b:"Moved the business from Instagram DMs to a structured catalogue, so customers can browse the full range without asking for prices one product at a time.",
+      a:["Full catalogue structure that scales as new products are added","Mobile-first shopping experience for a largely mobile audience","Reduced repetitive DM enquiries with self-serve product info"],
+      t:["React","JavaScript","CSS3","Responsive UI","Catalogue Architecture","SEO"] },
+
+    { n:"Zaafrin Mandi", u:"https://zaafrinmandi.netlify.app/", c:"Hospitality", h:["#b45309","#f59e0b"], v:"list",
+      s:"Restaurant website with digital menu, gallery and reservations.",
+      d:"Delivered a restaurant experience site: appetite-driven visual menu, category-wise dishes, story and ambience gallery, location/hours and a table-reservation and ordering enquiry flow.",
+      b:"Replaced printed and PDF menus with a live digital one the owner can update, and turned search traffic into reservations instead of phone-tag.",
+      a:["Live digital menu the restaurant updates without a developer","Reservation funnel built directly into the browsing experience","Fast, image-optimised delivery on a global CDN"],
+      t:["HTML5","CSS3","JavaScript","Netlify","Responsive Design","Image Optimisation"] },
+
+    { n:"Dhammam Properties", u:"https://dhammamproperties.com/", c:"Real Estate", h:["#0f766e","#10b981"], v:"grid",
+      s:"Real estate website with property listings and lead capture.",
+      d:"Built a property discovery site: listing grid with filters, individual property pages with specs and galleries, location context, and enquiry forms routed to the sales team.",
+      b:"Gave buyers a way to shortlist properties before ever calling — so the sales team spent their time on qualified, informed leads instead of first-round explanations.",
+      a:["Filterable listing architecture that scales with inventory","Qualified lead capture attached to each individual property","Strong local SEO structure for location-based property searches"],
+      t:["HTML5","CSS3","JavaScript","Listing CMS","Lead Forms","Local SEO"] },
+
+    { n:"Nexus — Real Estate CRM", u:"https://nexus.archism.in/auth", c:"CRM", h:["#6366f1","#0ea5e9"], v:"dash",
+      s:"End-to-end CRM built for real estate sales teams.",
+      d:"Engineered a full CRM: secure authentication, lead capture from multiple sources, pipeline stages, site-visit scheduling, agent assignment, follow-up reminders, activity timelines, property inventory mapping and management dashboards with conversion reporting.",
+      b:"Real estate lives or dies on follow-up. This CRM made every lead traceable from first enquiry to closure, so nothing leaked between agents and managers could see exactly where deals were stalling.",
+      a:["Complete lead-to-closure pipeline with zero-leak follow-up tracking","Role-based access for agents, managers and admins","Conversion dashboards that exposed where deals were dropping","Automated reminders that lifted follow-up discipline across the team"],
+      t:["React","TypeScript","Node.js","PostgreSQL","REST APIs","JWT Auth","RBAC","Dashboard Analytics"] },
+
+    { n:"Binjai — AI Agentic Voice &amp; Messaging", u:"https://binjai.binjwaitsolutions.com", c:"AI", h:["#7c3aed","#ec4899"], v:"chart",
+      s:"Full AI agentic platform for automated voice calling and messaging.",
+      d:"Built an agentic AI system that places and receives real voice calls and runs messaging conversations autonomously: speech-to-text, LLM-driven reasoning with tool calling, text-to-speech, conversation memory, campaign management, call transcripts and outcome analytics — plus human handoff when the agent hits its limits.",
+      b:"Replaced entire tiers of manual calling and follow-up. The business can now run outreach, qualification and reminders around the clock at a fraction of the per-conversation cost of a human team, with every conversation transcribed and measurable.",
+      a:["Shipped a production agentic voice AI handling real inbound and outbound calls","Designed the STT → LLM → TTS pipeline with low-latency streaming","Built campaign orchestration with transcripts and outcome analytics","Enabled 24/7 lead qualification without adding headcount"],
+      t:["Python","Node.js","LLM APIs","Agentic Tool Calling","Speech-to-Text","Text-to-Speech","Twilio / Telephony","WebSockets","Vector DB"] },
+
+    { n:"Ashish Residency", u:"https://ashishresidency.propwizardstudio.com", c:"Real Estate", h:["#334155","#0ea5e9"], v:"grid",
+      s:"Residential project microsite built to sell units.",
+      d:"Built a dedicated property microsite: project highlights, floor plans, amenities, gallery, location advantages and a high-intent enquiry/site-visit booking form.",
+      b:"Gave the developer a focused, campaign-ready landing destination for paid and offline promotion, converting interest into booked site visits rather than generic enquiries.",
+      a:["Campaign-ready microsite optimised for site-visit conversions","Floor plan and amenity presentation that reduced sales-call friction","Fast mobile load for ad-driven traffic"],
+      t:["HTML5","CSS3","JavaScript","Responsive Design","Lead Capture","Landing Page Optimisation"] },
+
+    { n:"Babbie Cal — Android App", u:"https://play.google.com/store/apps/details?id=com.babbiecal.app", c:"Mobile App", h:["#f472b6","#a78bfa"], v:"phone",
+      s:"Published Android application, live on the Google Play Store.",
+      d:"Built and shipped a mobile app end to end: UI/UX, core feature logic, local and remote data handling, offline-friendly state, release signing and full Play Store submission including listing assets and policy compliance.",
+      b:"Put the product directly on users' home screens — a distribution channel a website can't replicate — with in-app engagement instead of one-off visits.",
+      a:["Successfully published and approved on the Google Play Store","Owned the full release pipeline: build → sign → submit → update","Smooth, native-feeling UX with offline resilience"],
+      t:["React Native / Android","JavaScript","REST APIs","Local Storage","Play Console","Release Signing"] },
+
+    { n:"Notes by Vishal — Android App", u:"https://play.google.com/store/apps/details?id=com.notesvishal", c:"Mobile App", h:["#38bdf8","#818cf8"], v:"phone",
+      s:"Notes and study companion app published on Google Play.",
+      d:"Developed a notes/study application with content organisation, search, categorised material, offline reading and update delivery — then handled store listing, versioning and post-launch updates.",
+      b:"Gave learners always-available access to study material on mobile, turning scattered PDFs and links into one organised, searchable app.",
+      a:["Live on the Play Store with an ongoing update cycle","Offline access so students can study without connectivity","Search and categorisation that made large content sets usable"],
+      t:["Android","JavaScript / Java","Local DB","Offline Sync","Play Console"] },
+
+    { n:"Periyar World", u:"https://periyarworld.org/", c:"Non-Profit", h:["#dc2626","#f59e0b"], v:"list",
+      s:"Organisation and social-movement website with heavy content depth.",
+      d:"Structured and built a content-rich organisational site: mission and history, articles and archives, events, media sections and volunteer/contact pathways — with an information architecture that keeps deep content navigable.",
+      b:"Preserved and distributed the organisation's material to a wider public audience, giving a movement with a lot to say a structured, searchable home instead of scattered posts.",
+      a:["Designed IA for a large, growing content archive","Accessible, readable typography for long-form content","Mobile-first delivery for a predominantly mobile readership"],
+      t:["HTML5","CSS3","JavaScript","CMS Integration","Content Architecture","SEO"] },
+
+    { n:"Paati Veedu", u:"https://paativeedu.com/", c:"Hospitality", h:["#ea580c","#fbbf24"], v:"grid",
+      s:"Heritage food &amp; hospitality brand website.",
+      d:"Built a warm, story-led brand site: heritage narrative, product/menu showcase, photo galleries and enquiry or ordering pathways — visual design tuned to a traditional, homely brand voice.",
+      b:"Translated a strongly offline, word-of-mouth brand into a digital presence that carries the same warmth, opening it to customers who discover it through search and social.",
+      a:["Brand storytelling translated faithfully into a digital experience","Visual-forward layout that drove product interest","Clean mobile browsing for on-the-go ordering intent"],
+      t:["HTML5","CSS3","JavaScript","Responsive Design","Image Optimisation","SEO"] },
+
+    { n:"LetsFame", u:"https://www.letsfame.com/", c:"Platform", h:["#8b5cf6","#f43f5e"], v:"dash",
+      s:"Creator and celebrity engagement platform.",
+      d:"Worked on a multi-sided platform connecting fans with creators and celebrities: profile and talent discovery, categorised browsing, booking/request flows, user accounts and transactional pathways between two very different user types.",
+      b:"Gave creators a monetisable, structured channel for fan engagement and gave fans a trustworthy way to book them — replacing untracked DMs with real transactions.",
+      a:["Contributed to a live two-sided marketplace in production","Built discovery and booking flows for distinct user roles","Handled transactional request lifecycles end to end"],
+      t:["React","JavaScript","Node.js","REST APIs","Payments Integration","Responsive UI"] },
+
+    { n:"Key2H Admin Portal", u:"https://admin.key2h.com/", c:"Portal", h:["#0891b2","#6366f1"], v:"list",
+      s:"Secure administrative portal for internal operations.",
+      d:"Built the authenticated admin surface: login and session security, user and record management, operational dashboards, filtering and search over large data sets, and role-scoped permissions for different staff levels.",
+      b:"Centralised back-office operations into one authenticated console, cutting out spreadsheet handoffs and giving management real-time visibility into day-to-day operations.",
+      a:["Secure, role-scoped admin authentication","Operational dashboards replacing manual spreadsheet reporting","Fast filtering and search across large operational data sets"],
+      t:["React","TypeScript","Node.js","SQL Database","JWT Auth","RBAC","Admin Dashboards"] },
+
+    { n:"PMU — University Platform", u:"https://pmu.edu/", c:"EdTech", h:["#1d4ed8","#0ea5e9"], v:"grid",
+      s:"Large-scale university web platform with multi-department content.",
+      d:"Contributed to a high-traffic education platform: department and programme structures, admissions information and application pathways, faculty and research sections, news/events and student resource areas — all under strict accessibility and performance expectations.",
+      b:"Supported admissions and institutional credibility at scale, making programme information findable for prospective students and reducing load on admissions staff.",
+      a:["Worked on a high-traffic, multi-department institutional platform","Maintained accessibility and performance standards at scale","Structured admissions pathways that supported enrolment"],
+      t:["HTML5","CSS3","JavaScript","CMS","Accessibility (WCAG)","Performance Optimisation","SEO"] },
+
+    { n:"SoftEdge Solution", u:"https://www.softedgesolution.in/", c:"Corporate", h:["#2563eb","#22d3ee"], v:"list",
+      s:"IT services company website positioning technical capability.",
+      d:"Built the corporate site around service verticals, engagement models, technology capabilities, case highlights and a qualified enquiry funnel for B2B prospects.",
+      b:"Helped an IT services firm present real technical depth to enterprise buyers, shortening the credibility phase of the sales cycle.",
+      a:["Service and capability architecture aligned to B2B buying behaviour","Qualified enquiry funnel feeding the sales pipeline","Clean, fast corporate presence with SEO foundations"],
+      t:["HTML5","CSS3","JavaScript","Responsive Design","SEO","Lead Forms"] },
+
+    { n:"Anuj Murarka — Personal Brand", u:"https://ianujmurarka.com/", c:"Personal Brand", h:["#0f172a","#f59e0b"], v:"grid",
+      s:"Personal brand and thought-leadership website.",
+      d:"Designed and built a personal brand site: positioning-led hero, about and credentials, expertise areas, media/speaking sections, content shelf and direct contact pathways.",
+      b:"Turned an individual's reputation into a discoverable asset — one authoritative link for speaking invitations, media requests and business enquiries.",
+      a:["Distinct personal brand identity delivered end to end","Single authoritative destination for media and speaking enquiries","Content structure built to grow with new work"],
+      t:["HTML5","CSS3","JavaScript","Responsive Design","Personal Branding","SEO"] },
+
+    { n:"Bhava Global", u:"https://www.bhavaglobal.com/", c:"Corporate", h:["#155e75","#14b8a6"], v:"chart",
+      s:"Global business website for an international-facing company.",
+      d:"Built a corporate site for a global audience: business verticals, international presence, capability and partnership sections, and region-aware contact routing — with performance tuned for visitors across geographies.",
+      b:"Gave the company a credible international shopfront for cross-border partnership conversations, presenting a consistent brand to prospects in multiple markets.",
+      a:["International-grade corporate presence delivered end to end","Performance tuned for cross-geography load times","Structured partnership and business enquiry routing"],
+      t:["HTML5","CSS3","JavaScript","Responsive Design","Performance","SEO","CDN"] }
+  ];
+
+  var grid = document.getElementById("worksGrid");
+  var filterBar = document.getElementById("worksFilters");
+  var overlay = document.getElementById("wkOverlay");
+  var body = document.getElementById("wkBody");
+  var closeBtn = document.getElementById("wkClose");
+  if (!grid) return;
+
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&(?!(amp|lt|gt|quot|#39|nbsp);)/g, "&amp;")
+      .replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  function visual(kind) {
+    if (kind === "dash") {
+      return '<div class="ln w45"></div><div class="blocks"><b></b><b></b><b></b></div><div class="ln w70"></div>';
+    }
+    if (kind === "chart") {
+      return '<div class="ln w45"></div><div class="chart"><u style="height:40%"></u><u style="height:70%"></u><u style="height:55%"></u><u style="height:90%"></u><u style="height:65%"></u><u style="height:100%"></u></div>';
+    }
+    if (kind === "grid") {
+      return '<div class="ln w45"></div><div class="blocks"><b></b><b></b><b></b><b></b><b></b><b></b></div>';
+    }
+    if (kind === "phone") {
+      return '<div class="ln w45"></div><div class="blocks" style="grid-template-columns:repeat(2,1fr)"><b style="height:56px"></b><b style="height:56px"></b></div><div class="ln w70"></div>';
+    }
+    return '<div class="ln w70"></div><div class="ln"></div><div class="ln w45"></div><div class="ln"></div><div class="ln w70"></div>';
+  }
+
+  function host(url) {
+    return url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+  }
+
+  function cardHtml(p, i) {
+    return '' +
+      '<article class="work-card" data-cat="' + esc(p.c) + '">' +
+        '<div class="work-shot"><div class="work-frame">' +
+          '<div class="work-bar"><i></i><i></i><i></i><span>' + esc(host(p.u)) + '</span></div>' +
+          '<div class="work-canvas work-hue" style="--h1:' + p.h[0] + ';--h2:' + p.h[1] + '">' + visual(p.v) + '</div>' +
+        '</div></div>' +
+        '<div class="work-body">' +
+          '<span class="work-tag">' + esc(p.c) + '</span>' +
+          '<h3>' + p.n + '</h3>' +
+          '<p class="work-sub">' + p.s + '</p>' +
+          '<div class="work-stack">' + p.t.slice(0, 5).map(function (t) { return '<em>' + esc(t) + '</em>'; }).join("") + '</div>' +
+          '<div class="work-actions">' +
+            '<a class="work-btn work-btn-live" href="' + p.u + '" target="_blank" rel="noopener">See Live ↗</a>' +
+            '<button class="work-btn work-btn-case" data-idx="' + i + '">Case Study</button>' +
+          '</div>' +
+        '</div>' +
+      '</article>';
+  }
+
+  function render(cat) {
+    grid.innerHTML = WORKS.map(cardHtml)
+      .filter(function (_, i) { return cat === "All" || WORKS[i].c === cat; })
+      .join("");
+  }
+
+  var cats = ["All"];
+  WORKS.forEach(function (p) { if (cats.indexOf(p.c) === -1) cats.push(p.c); });
+  filterBar.innerHTML = cats.map(function (c, i) {
+    return '<button class="works-filter' + (i === 0 ? " is-active" : "") + '" data-cat="' + esc(c) + '">' + esc(c) + "</button>";
+  }).join("");
+
+  filterBar.addEventListener("click", function (e) {
+    var b = e.target.closest(".works-filter");
+    if (!b) return;
+    filterBar.querySelectorAll(".works-filter").forEach(function (x) { x.classList.remove("is-active"); });
+    b.classList.add("is-active");
+    render(b.getAttribute("data-cat"));
+  });
+
+  grid.addEventListener("click", function (e) {
+    var b = e.target.closest(".work-btn-case");
+    if (!b) return;
+    var p = WORKS[+b.getAttribute("data-idx")];
+    body.innerHTML =
+      '<span class="work-tag">' + esc(p.c) + '</span>' +
+      '<h3>' + p.n + '</h3>' +
+      '<a class="wk-url" href="' + p.u + '" target="_blank" rel="noopener">' + esc(host(p.u)) + ' ↗</a>' +
+      '<h4>The Project</h4><p>' + p.d + '</p>' +
+      '<h4>How It Supported the Business</h4><p>' + p.b + '</p>' +
+      '<h4>Achievements</h4><ul>' + p.a.map(function (x) { return "<li>" + x + "</li>"; }).join("") + '</ul>' +
+      '<h4>Tech Stack</h4><div class="work-stack">' + p.t.map(function (t) { return '<em>' + esc(t) + '</em>'; }).join("") + '</div>' +
+      '<div class="wk-foot">' +
+        '<a class="work-btn work-btn-live" href="' + p.u + '" target="_blank" rel="noopener">See Live ↗</a>' +
+        '<button class="work-btn work-btn-case" id="wkDismiss">Close</button>' +
+      '</div>';
+    overlay.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+  });
+
+  function close() { overlay.classList.remove("is-open"); document.body.style.overflow = ""; }
+  closeBtn.addEventListener("click", close);
+  overlay.addEventListener("click", function (e) {
+    if (e.target === overlay || e.target.id === "wkDismiss") close();
+  });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+
+  render("All");
+})();
+</script>
+<!-- ============ END PREVIOUS WORKS & ACHIEVEMENTS ============ -->
+
 
 <!-- ============ IDEAS & ARTICLES ============ -->
 <section class="section alt" id="ideas">
