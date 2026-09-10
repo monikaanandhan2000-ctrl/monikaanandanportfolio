@@ -530,6 +530,42 @@
   </div>
 </header>
 
+     header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    gap: 15px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex: 1;
+}
+
+header nav a {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+     @media (max-width: 900px) {
+    header {
+        justify-content: center;
+    }
+
+    header nav {
+        justify-content: center;
+        width: 100%;
+        gap: 12px;
+    }
+}
+
 <!-- ============ HERO ============ -->
 <section class="hero" id="about">
   <div class="hero-inner">
