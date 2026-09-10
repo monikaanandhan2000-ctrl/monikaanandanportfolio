@@ -125,6 +125,13 @@ img { max-width: 100%; display: block; }
   cursor: pointer;
   color: var(--navy);
 }
+header {
+    width: 100vw;
+    max-width: none;
+    margin: 0;
+    padding: 0 25px;
+    box-sizing: border-box;
+}
 
 /* =========================================================
    HERO
