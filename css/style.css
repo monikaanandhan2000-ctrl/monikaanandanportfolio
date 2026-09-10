@@ -71,7 +71,30 @@ img { max-width: 100%; display: block; }
   font-family: monospace;
   font-size: 14px;
 }
+.navbar {
+    width: 100vw;
+    max-width: none;
+    margin: 0;
+    padding: 8px 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: visible;
+}
 
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.navbar nav a {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
 /* =========================================================
    NAV
    ========================================================= */
