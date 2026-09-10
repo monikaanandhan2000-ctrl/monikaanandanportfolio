@@ -174,18 +174,36 @@
     margin: 0 0 1rem;
     font-size: 1rem;
     color: #1c1c2e;
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
   }
   .stack-card h3 span {
-    display: block;
+    display: inline-block;
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.05em;
     color: #8b8ba7;
-    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+  }
+  .icon-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 1rem;
+  }
+  .icon-strip img {
+    width: 30px;
+    height: 30px;
+    display: block;
+    border-radius: 6px;
+    flex-shrink: 0;
   }
   .tag-list {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 0.5rem;
   }
   .tag-pill {
@@ -196,6 +214,7 @@
     font-weight: 600;
     padding: 0.4rem 0.85rem;
     border-radius: 999px;
+    line-height: 1.2;
   }
 
   /* ---- Business Tools section ---- */
@@ -423,10 +442,6 @@
 <section class="section alt" id="techstack">
   <div class="section-head">
     <p class="eyebrow">What I Build With</p>
-   <!-- ============ TECH STACK ============ -->
-<section class="section alt" id="techstack">
-  <div class="section-head">
-    <p class="eyebrow">What I Build With</p>
     <h2>Technology Stack</h2>
     <p class="section-sub">The tools and technologies I use across the software side of my work. Edit any list below to match exactly what you use — these are placeholders to get you started.</p>
   </div>
@@ -620,7 +635,9 @@
       </div>
     </div>
   </div>
-</section><!-- ============ GALLERY ============ -->
+</section>
+
+<!-- ============ GALLERY ============ -->
 <section class="section alt" id="gallery">
   <div class="section-head">
     <p class="eyebrow">Gallery</p>
