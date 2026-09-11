@@ -610,23 +610,20 @@ header nav a {
 
 <!-- ============ PREVIOUS WORKS & ACHIEVEMENTS (ADDED SECTION) ============ -->
 <style>
-  /* ===== Works section: intentionally its own dark, editorial theme ===== */
+  /* ===== Works section: light, editorial theme aligned with the rest of the site ===== */
   #works {
     position: relative;
     padding: 5.5rem 1.5rem 6rem;
-    background:
-      radial-gradient(900px 500px at 12% -10%, rgba(99,102,241,.28), transparent 60%),
-      radial-gradient(800px 500px at 92% 8%, rgba(236,72,153,.22), transparent 60%),
-      linear-gradient(180deg, #0b0b18 0%, #12122a 55%, #0b0b18 100%);
-    color: #e9e9f5;
+    background: linear-gradient(180deg, #fafafe 0%, #f3f4fb 100%);
+    color: #1c1c2e;
     overflow: hidden;
   }
   #works::before {
     content: "";
     position: absolute; inset: 0;
     background-image:
-      linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      linear-gradient(rgba(20,20,50,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(20,20,50,.035) 1px, transparent 1px);
     background-size: 64px 64px;
     mask-image: radial-gradient(70% 60% at 50% 30%, #000 40%, transparent 100%);
     pointer-events: none;
@@ -636,87 +633,89 @@ header nav a {
   .works-eyebrow {
     display: inline-flex; align-items: center; gap: .5rem;
     font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
-    color: #c7d2fe; background: rgba(99,102,241,.16);
-    border: 1px solid rgba(147,197,253,.28);
+    color: #6366f1; background: #eef0fd;
+    border: 1px solid #d9dcfb;
     padding: .4rem .8rem; border-radius: 999px; margin: 0 0 1rem;
   }
   .works-head h2 {
     margin: 0 0 .9rem; font-size: clamp(1.9rem, 4vw, 2.9rem);
-    line-height: 1.12; color: #fff; letter-spacing: -.02em;
+    line-height: 1.12; color: #1c1c2e; letter-spacing: -.02em;
   }
-  .works-head p { margin: 0; color: #a9abcb; font-size: 1.02rem; line-height: 1.7; }
+  .works-head p { margin: 0; color: #6a6a84; font-size: 1.02rem; line-height: 1.7; }
 
   .works-stats {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1rem; margin: 2rem 0 2.4rem;
   }
   .works-stats div {
-    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09);
+    background: #fff; border: 1px solid #ececf5;
     border-radius: 14px; padding: 1rem 1.1rem;
+    box-shadow: 0 6px 20px rgba(20,20,50,.05);
   }
-  .works-stats strong { display: block; font-size: 1.7rem; color: #fff; line-height: 1.1; }
-  .works-stats span { font-size: .82rem; color: #9ea0c2; }
+  .works-stats strong { display: block; font-size: 1.7rem; color: #1c1c2e; line-height: 1.1; }
+  .works-stats span { font-size: .82rem; color: #8b8ba7; }
 
   .works-filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
   .works-filter {
     cursor: pointer; font: inherit; font-size: .82rem; font-weight: 600;
-    color: #b9bbdd; background: rgba(255,255,255,.05);
-    border: 1px solid rgba(255,255,255,.12); border-radius: 999px;
+    color: #4d4d66; background: #fff;
+    border: 1px solid #ececf5; border-radius: 999px;
     padding: .5rem .95rem; transition: all .2s ease;
   }
-  .works-filter:hover { color: #fff; border-color: rgba(167,139,250,.6); }
-  .works-filter.is-active { color: #12122a; background: linear-gradient(120deg,#a5b4fc,#f0abfc); border-color: transparent; }
+  .works-filter:hover { color: #1c1c2e; border-color: #a5b4fc; }
+  .works-filter.is-active { color: #fff; background: linear-gradient(120deg,#6366f1,#a855f7); border-color: transparent; }
 
   .works-grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.4rem;
   }
   .work-card {
     display: flex; flex-direction: column;
-    background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-    border: 1px solid rgba(255,255,255,.10); border-radius: 20px; overflow: hidden;
+    background: #fff;
+    border: 1px solid #ececf5; border-radius: 20px; overflow: hidden;
+    box-shadow: 0 6px 24px rgba(20,20,50,.05);
     transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
   }
-  .work-card:hover { transform: translateY(-6px); border-color: rgba(167,139,250,.55); box-shadow: 0 24px 60px rgba(0,0,0,.45); }
+  .work-card:hover { transform: translateY(-6px); border-color: #a5b4fc; box-shadow: 0 20px 50px rgba(20,20,50,.12); }
 
   /* CSS-drawn preview: a mini browser/app frame that hints how each product works */
   .work-shot { position: relative; padding: .8rem; }
   .work-frame {
-    border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,.12);
-    background: #0e0e20;
+    border-radius: 14px; overflow: hidden; border: 1px solid #ececf5;
+    background: #fafafe;
   }
   .work-bar {
     display: flex; align-items: center; gap: .35rem;
-    padding: .5rem .7rem; background: rgba(255,255,255,.07);
-    border-bottom: 1px solid rgba(255,255,255,.08);
+    padding: .5rem .7rem; background: #f2f2f8;
+    border-bottom: 1px solid #ececf5;
   }
   .work-bar i { width: 8px; height: 8px; border-radius: 50%; background: #ff5f57; display: block; }
   .work-bar i:nth-child(2) { background: #febc2e; }
   .work-bar i:nth-child(3) { background: #28c840; }
   .work-bar span {
-    margin-left: .5rem; font-size: .62rem; color: #9aa0c9; letter-spacing: .04em;
+    margin-left: .5rem; font-size: .62rem; color: #8b8ba7; letter-spacing: .04em;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
   .work-canvas { height: 148px; padding: .85rem; display: grid; gap: .5rem; }
-  .work-canvas .ln { height: 9px; border-radius: 5px; background: rgba(255,255,255,.14); }
+  .work-canvas .ln { height: 9px; border-radius: 5px; background: rgba(255,255,255,.5); }
   .work-canvas .ln.w70 { width: 70%; } .work-canvas .ln.w45 { width: 45%; }
   .work-canvas .blocks { display: grid; grid-template-columns: repeat(3,1fr); gap: .5rem; }
-  .work-canvas .blocks b { display: block; height: 40px; border-radius: 8px; background: rgba(255,255,255,.10); }
+  .work-canvas .blocks b { display: block; height: 40px; border-radius: 8px; background: rgba(255,255,255,.38); }
   .work-canvas .chart { display: flex; align-items: flex-end; gap: .35rem; height: 46px; }
-  .work-canvas .chart u { flex: 1; border-radius: 4px 4px 0 0; background: linear-gradient(180deg,#a5b4fc,#6366f1); }
+  .work-canvas .chart u { flex: 1; border-radius: 4px 4px 0 0; background: rgba(255,255,255,.6); }
   .work-hue { background: linear-gradient(135deg, var(--h1), var(--h2)); }
 
   .work-body { padding: .3rem 1.2rem 1.3rem; display: flex; flex-direction: column; flex: 1; }
   .work-tag {
     align-self: flex-start; font-size: .66rem; font-weight: 700; letter-spacing: .12em;
-    text-transform: uppercase; color: #0f0f22; background: linear-gradient(120deg,#a5b4fc,#f0abfc);
+    text-transform: uppercase; color: #fff; background: linear-gradient(120deg,#6366f1,#a855f7);
     padding: .25rem .6rem; border-radius: 999px; margin-bottom: .6rem;
   }
-  .work-body h3 { margin: 0 0 .35rem; font-size: 1.12rem; color: #fff; }
-  .work-body .work-sub { margin: 0 0 .8rem; font-size: .88rem; color: #a5a7c9; line-height: 1.6; }
+  .work-body h3 { margin: 0 0 .35rem; font-size: 1.12rem; color: #1c1c2e; }
+  .work-body .work-sub { margin: 0 0 .8rem; font-size: .88rem; color: #6a6a84; line-height: 1.6; }
   .work-stack { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 1rem; }
   .work-stack em {
-    font-style: normal; font-size: .68rem; font-weight: 600; color: #cfd3ff;
-    background: rgba(99,102,241,.18); border: 1px solid rgba(147,197,253,.22);
+    font-style: normal; font-size: .68rem; font-weight: 600; color: #4338ca;
+    background: #eef0fd; border: 1px solid #d9dcfb;
     padding: .22rem .55rem; border-radius: 6px;
   }
   .work-actions { margin-top: auto; display: flex; gap: .55rem; flex-wrap: wrap; }
@@ -725,39 +724,40 @@ header nav a {
     padding: .55rem .95rem; border-radius: 10px; text-decoration: none;
     display: inline-flex; align-items: center; gap: .35rem; transition: all .2s ease;
   }
-  .work-btn-live { color: #10101f; background: linear-gradient(120deg,#a5b4fc,#f0abfc); border: 1px solid transparent; }
+  .work-btn-live { color: #fff; background: linear-gradient(120deg,#6366f1,#a855f7); border: 1px solid transparent; }
   .work-btn-live:hover { filter: brightness(1.08); transform: translateY(-1px); }
-  .work-btn-case { color: #dcdcf5; background: transparent; border: 1px solid rgba(255,255,255,.2); }
-  .work-btn-case:hover { border-color: #a5b4fc; color: #fff; }
+  .work-btn-case { color: #4d4d66; background: #fff; border: 1px solid #ececf5; }
+  .work-btn-case:hover { border-color: #a5b4fc; color: #1c1c2e; }
 
   /* Case study modal (scoped to this section) */
 <style>
   .wk-overlay {
     position: fixed; inset: 0; z-index: 1200; display: none;
-    background: rgba(6,6,16,.78); backdrop-filter: blur(6px);
+    background: rgba(20,20,50,.45); backdrop-filter: blur(6px);
     padding: 2rem 1rem; overflow-y: auto;
   }
   .wk-overlay.is-open { display: block; }
   .wk-modal {
     position: relative; max-width: 780px; margin: 0 auto;
-    background: linear-gradient(180deg,#15152c,#0e0e1e);
-    border: 1px solid rgba(255,255,255,.14); border-radius: 22px;
-    padding: 2.2rem 1.8rem; color: #e7e7f6; box-shadow: 0 40px 90px rgba(0,0,0,.6);
+    background: #ffffff;
+    border: 1px solid #ececf5; border-radius: 22px;
+    padding: 2.2rem 1.8rem; color: #1c1c2e; box-shadow: 0 40px 90px rgba(20,20,50,.25);
   }
   .wk-close {
     position: absolute; top: 1rem; right: 1rem; width: 36px; height: 36px;
-    border-radius: 50%; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.06);
-    color: #fff; font-size: 1.1rem; cursor: pointer; line-height: 1;
+    border-radius: 50%; border: 1px solid #ececf5; background: #fafafe;
+    color: #1c1c2e; font-size: 1.1rem; cursor: pointer; line-height: 1;
   }
-  .wk-modal h3 { margin: .2rem 0 .3rem; font-size: 1.6rem; color: #fff; }
-  .wk-modal .wk-url { font-size: .82rem; color: #a5b4fc; word-break: break-all; text-decoration: none; }
+  .wk-close:hover { background: #f2f2f8; }
+  .wk-modal h3 { margin: .2rem 0 .3rem; font-size: 1.6rem; color: #1c1c2e; }
+  .wk-modal .wk-url { font-size: .82rem; color: #6366f1; word-break: break-all; text-decoration: none; }
   .wk-modal h4 {
     margin: 1.6rem 0 .6rem; font-size: .74rem; letter-spacing: .14em;
-    text-transform: uppercase; color: #f0abfc;
+    text-transform: uppercase; color: #8b8ba7;
   }
-  .wk-modal p { margin: 0 0 .6rem; line-height: 1.75; color: #c7c9e4; font-size: .95rem; }
+  .wk-modal p { margin: 0 0 .6rem; line-height: 1.75; color: #33334a; font-size: .95rem; }
   .wk-modal ul { margin: 0; padding-left: 1.1rem; }
-  .wk-modal li { margin-bottom: .45rem; line-height: 1.7; color: #c7c9e4; font-size: .95rem; }
+  .wk-modal li { margin-bottom: .45rem; line-height: 1.7; color: #33334a; font-size: .95rem; }
   .wk-modal .work-stack { margin-top: .5rem; }
   .wk-foot { margin-top: 1.8rem; display: flex; gap: .6rem; flex-wrap: wrap; }
 
@@ -995,6 +995,15 @@ header nav a {
       t:["HTML5","CSS3","JavaScript","Responsive Design","Performance","SEO","CDN"] }
   ];
 
+  var IMPACT_CLOSERS = [
+    "Looking back, the real win wasn't just shipping a working product — it was leaving the business with a reliable digital foundation it could keep building on long after I stepped away.",
+    "What mattered most to me on this project wasn't the build itself, but making sure the business could run smoother, make faster decisions and grow with less friction because of it.",
+    "Beyond the technical delivery, my focus stayed on the outcome that actually moved the business forward — fewer manual steps, clearer visibility, and a system the team could trust day to day.",
+    "The real measure of this project, for me, was how much simpler and more dependable it made everyday operations for the people actually running the business.",
+    "I stayed close to the business side throughout, checking in on whether the platform was actually reducing effort and improving outcomes, not just whether the features were technically complete.",
+    "What I valued most here was seeing the platform translate directly into a measurable operational or revenue improvement for the business, rather than staying a purely technical exercise."
+  ];
+
   var grid = document.getElementById("worksGrid");
   var filterBar = document.getElementById("worksFilters");
   var overlay = document.getElementById("wkOverlay");
@@ -1071,7 +1080,9 @@ header nav a {
   grid.addEventListener("click", function (e) {
     var b = e.target.closest(".work-btn-case");
     if (!b) return;
-    var p = WORKS[+b.getAttribute("data-idx")];
+    var idx = +b.getAttribute("data-idx");
+    var p = WORKS[idx];
+    var impactCloser = IMPACT_CLOSERS[idx % IMPACT_CLOSERS.length];
 
     body.innerHTML =
       '<span class="work-tag">' + esc(p.c) + '</span>' +
@@ -1082,7 +1093,7 @@ header nav a {
 
       '<h4>How It Supported the Business</h4><p>' + p.b + '</p>' +
 
-      '<h4>My Experience &amp; Business Impact</h4><p>' + p.e + '</p>' +
+      '<h4>My Experience &amp; Business Impact</h4><p>' + p.e + ' ' + impactCloser + '</p>' +
 
       '<h4>Achievements</h4><ul>' + p.a.map(function (x) { return "<li>" + x + "</li>"; }).join("") + '</ul>' +
 
